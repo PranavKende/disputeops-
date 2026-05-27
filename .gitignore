@@ -1,0 +1,59 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables — never commit .env itself
+.env
+# .env.example is intentionally NOT ignored
+
+# Pytest
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Type checkers and linters
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+*.egg-info/
+*.egg
+build/
+dist/
+wheels/
+MANIFEST
+sdist/
+
+# Logs
+*.log
+logs/
+
+# UiPath build artifacts (Week 2+)
+*.nupkg
+**/.local/
+**/.objects/
+
+# Claude Code session artifacts
+# Raw session JSON exports stay local; only curated session.md files are committed
+.claude/
+coding-agent-evidence/**/raw_session_*.json
