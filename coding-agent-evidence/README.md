@@ -1,46 +1,96 @@
 # Coding-Agent Evidence
 
-This folder documents the use of Claude Code (Anthropic) during DisputeOps development.
-It is submitted as evidence for the **+2 hackathon bonus** awarded for documented coding-agent use
-per UiPath AgentHack 2026 rules.
+[![ComplianceAuditor: 255 tests](https://img.shields.io/badge/ComplianceAuditor-255_tests_passing-brightgreen)]()
+[![Hackathon: AgentHack 2026](https://img.shields.io/badge/Hackathon-UiPath_AgentHack_2026-blue)]()
+[![Track: Maestro Case](https://img.shields.io/badge/Track-Maestro_Case-purple)]()
+
+This folder documents the use of Claude Code (Anthropic) during DisputeOps development. It is submitted as evidence for the **+2 bonus** awarded under UiPath AgentHack 2026 rules for documented coding-agent use.
 
 ## Bonus claim
 
-Per AgentHack 2026 rules, teams earn +2 points for demonstrating that a coding agent was used
-in the development of their submission. This folder provides verifiable, per-agent evidence
-including the original prompts, session summaries, and observable outcomes (tests written,
-bugs found, code produced).
+This folder provides multiple forms of verifiable evidence per the AgentHack 2026 rules for the 2-point bonus tier: the original prompts submitted to Claude Code (`prompts/`), curated session summaries describing what was built (`session.md`), screenshots of key Claude Code interactions (`screenshots/`), and a per-session changelog with file counts, test counts, and bugs found (`changelog.md`).
+
+The rules require: (a) the name of the coding agent used, (b) how it contributed, and (c) at least one form of verifiable evidence. This folder supplies all three, with multiple evidence types per agent.
+
+## Tool used
+
+**Claude Code** by Anthropic — the official command-line and IDE-integrated coding agent for Claude. Sessions were run from VS Code's integrated terminal, with Claude Code reading and writing files in the repo and executing shell commands (pytest, git, file creation) directly. This direct file-level integration distinguishes the workflow from a copy-paste-from-chat pattern and satisfies the "meaningfully and substantively integrated" criterion in the rules.
+
+**Model used**: `<<< VERIFY AND REPLACE — run /model in Claude Code to confirm >>>`
+
+## Outcomes — ComplianceAuditor (Stage 3 rules engine, built)
+
+| Metric | Value |
+|---|---|
+| Build phases | 4 (deterministic rules → mixed rules → LLM rules → LangGraph orchestration) |
+| Tests produced | 255 |
+| &nbsp;&nbsp;— Citations | 78 |
+| &nbsp;&nbsp;— Deterministic rules | 49 |
+| &nbsp;&nbsp;— Mixed rules | 35 |
+| &nbsp;&nbsp;— LLM rules | 20 |
+| &nbsp;&nbsp;— Orchestration | 36 |
+| &nbsp;&nbsp;— LLM client | 5 |
+| &nbsp;&nbsp;— Integration | 22 |
+| &nbsp;&nbsp;— Cross-cutting | 10 |
+| Real bugs found and fixed | 1 (R002 substring-detection — surfaced via integration testing on realistic fixture data) |
+| CFR corrections caught against spec | 3 (R001 §541.6 → §541.7(a); R007 §541.6(b) → §541.6(e)(2); R008 §541.7 → §541.8(a)) — verified against the current eCFR after the 2024 Part 541 rewrite (89 FR 14330) |
+| External frameworks integrated | LangGraph, LangChain, Pydantic v2, pytest |
+| Lines of code produced | ~3,500 (rules + tests + schemas + orchestration, estimated) |
+| Build duration | ~3 days, spread across multiple Claude Code sessions |
+
+## What Claude Code did NOT do
+
+To be precise about the human–AI division of labor on this build:
+
+- **Architecture decisions were human-led.** Track choice (Maestro Case over BPMN), agent boundary design (four coded agents plus one low-code agent vs. a monolith), schema design philosophy (frozen Pydantic v2, separate `CannotEvaluate` model rather than a nullable `violated` field), and the four-phase build strategy were all decided by the human developer (Pranav Kende, the submitting entrant).
+
+- **Regulatory research was a collaboration with human-led review.** Claude Code fetched and quoted the CFR text, but the human-led review identified that the original spec's section numbers were stale against the 2024 Part 541 rewrite. Two of the three CFR corrections originated from Claude Code's fact-finding; one originated from the human review of Claude Code's draft.
+
+- **Code review and architectural critique happened at every phase boundary.** Claude Code was instructed to pause after each phase. The human reviewed the output, approved or rejected the design, surfaced edge cases (e.g., the R008 status-reporter split into R008 + R012; the R011 not-applicable semantics; the `_build_summary` templated-vs-LLM decision), and adjusted the spec before the next phase began.
+
+- **The hackathon strategy was human-led.** Track selection, problem statement (freight detention/demurrage recovery), agent naming, and the demo narrative were not authored by Claude Code.
+
+Claude Code's role was high-leverage code production within a human-defined architecture, with phase-gated review. This is the workflow the README documents and the evidence supports.
 
 ## What's in this folder
 
 Each subfolder corresponds to one agent or component in the DisputeOps system:
 
 | Subfolder | Agent / Component | Status |
-|-----------|-------------------|--------|
+|---|---|---|
 | `01-compliance-auditor/` | ComplianceAuditor (LangGraph, Stage 3) | ✅ Complete |
 | `02-recovery-oracle/` | RecoveryOracle (Pydantic AI, Stage 3) | ⏳ Planned |
 | `03-demand-smith/` | DemandSmith (LangChain, Stage 3) | ⏳ Planned |
 | `04-paper-trail/` | PaperTrail (LangChain, Stage 2) | ⏳ Planned |
 | `05-simulator/` | Case simulator and orchestration harness | ⏳ Planned |
-| `06-uipath-integration/` | Maestro Case wiring, Action Center, DMN | ⏳ Planned |
+| `06-uipath-integration/` | Maestro Case wiring, Action Center forms, DMN tables | ⏳ Planned |
 
 ## What each subfolder contains
 
 - `session.md` — curated session-by-session summary of what was built, prompts used, and outcomes
 - `prompts/` — the exact prompts submitted to Claude Code at each phase
 - `screenshots/` — screenshots of Claude Code sessions at key milestones
-- `changelog.md` — per-session diff summary (files created, tests added, bugs found/fixed)
+- `changelog.md` — per-session diff summary (files created, tests added, bugs found and fixed)
 
-> **Note on raw session files:** Raw Claude Code session JSON exports (`raw_session_*.json`)
-> are excluded from this repo via `.gitignore` — they contain full conversation transcripts
-> which can be large. Only the curated `session.md` summaries are committed.
+> **Note on raw session files**: raw Claude Code session JSON exports (`raw_session_*.json`) are excluded from this repo via `.gitignore`. They contain full conversation transcripts which can be large and may include incidental local paths. Only the curated `session.md` summaries are committed.
 
-## Tool used
+## How a reviewer can verify the bonus claim
 
-**Claude Code** by Anthropic — the official CLI for Claude, running as an interactive
-coding agent in VS Code. Model: `claude-sonnet-4-6`.
+A judge reviewing this submission can verify the +2 bonus criteria as follows:
 
-All four build phases of ComplianceAuditor (deterministic rules → mixed rules → LLM rules →
-LangGraph orchestration) were executed entirely through Claude Code sessions, producing
-fully-tested, production-quality Python code with structured Pydantic schemas, LangChain
-prompts, and pytest suites totalling 255 tests.
+1. **Tool identification**: see the "Tool used" section above.
+2. **Contribution description**: see the "Outcomes" and "What Claude Code did NOT do" sections.
+3. **Verifiable evidence**: open any populated subfolder (starting with `01-compliance-auditor/`) and review the `prompts/`, `session.md`, `screenshots/`, and `changelog.md` artifacts.
+4. **Code-level verification**: the test count claimed in this README is reproducible — clone the repo, install dependencies per the top-level `README.md`, and run `pytest`. The 255-test claim is verifiable in under five minutes.
+
+## Submission context
+
+- **Hackathon**: UiPath AgentHack 2026
+- **Track**: 1 — UiPath Maestro Case
+- **Submitter**: Pranav Kende (solo entrant)
+- **Project repository**: this repo (`disputeops`)
+- **Submission deadline**: June 29, 2026, 11:45 pm EDT
+
+---
+
+*This document is part of the official AgentHack 2026 submission for DisputeOps. The MIT license at the repo root applies to all original solution code. UiPath proprietary tools and frameworks remain subject to their own license terms per the hackathon rules.*
