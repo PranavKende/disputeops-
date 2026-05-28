@@ -64,7 +64,7 @@ Each correction is documented in the reconciliation comment block at the top of 
 
 Sessions were run from VS Code's integrated terminal, with Claude Code reading and writing files in the repo and executing shell commands (pytest, git, file creation) directly. This direct file-level integration is meaningfully different from a copy-paste-from-chat workflow and satisfies the "meaningfully and substantively integrated" criterion in the AgentHack rules.
 
-Model used: <fill in actual model — run /model in Claude Code to verify>
+Model used: Claude Sonnet 4.6
 
 ## Human–AI division of labor
 

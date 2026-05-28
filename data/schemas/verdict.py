@@ -38,7 +38,7 @@ class RuleResult(BaseModel):
             ``False``.
     """
 
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     rule_id: str = Field(..., pattern=r"^R\d{3}$", description="R001–R011 rule identifier")
     rule_name: str = Field(..., description="Human-readable rule name")
@@ -82,7 +82,7 @@ class Violation(BaseModel):
         citation: Verbatim FMC Part 541 text that the carrier violated.
     """
 
-    model_config = {"frozen": True}
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     rule_id: str = Field(..., pattern=r"^R\d{3}$")
     rule_name: str
@@ -189,7 +189,7 @@ class ComplianceVerdict(BaseModel):
             describing the violations found and their regulatory basis.
     """
 
-    model_config = {"frozen": True}
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     case_id: str = Field(..., description="Case ID echoed from DisputeCase")
     total_rules_evaluated: Annotated[int, Field(ge=0)] = Field(
