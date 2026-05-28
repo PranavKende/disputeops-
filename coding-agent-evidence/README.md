@@ -16,7 +16,7 @@ The rules require: (a) the name of the coding agent used, (b) how it contributed
 
 **Claude Code** by Anthropic — the official command-line and IDE-integrated coding agent for Claude. Sessions were run from VS Code's integrated terminal, with Claude Code reading and writing files in the repo and executing shell commands (pytest, git, file creation) directly. This direct file-level integration distinguishes the workflow from a copy-paste-from-chat pattern and satisfies the "meaningfully and substantively integrated" criterion in the rules.
 
-**Model used**: `<<< VERIFY AND REPLACE — run /model in Claude Code to confirm >>>`
+**Model used**: `Claude Sonnet 4.6`
 
 ## Outcomes — ComplianceAuditor (Stage 3 rules engine, built)
 
