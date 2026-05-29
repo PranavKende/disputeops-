@@ -1,6 +1,6 @@
 # Coding-Agent Evidence
 
-[![ComplianceAuditor: 255 tests](https://img.shields.io/badge/ComplianceAuditor-255_tests_passing-brightgreen)]()
+[![460 tests passing](https://img.shields.io/badge/all_agents-460_tests_passing-brightgreen)]()
 [![Hackathon: AgentHack 2026](https://img.shields.io/badge/Hackathon-UiPath_AgentHack_2026-blue)]()
 [![Track: Maestro Case](https://img.shields.io/badge/Track-Maestro_Case-purple)]()
 
@@ -18,25 +18,24 @@ The rules require: (a) the name of the coding agent used, (b) how it contributed
 
 **Model used**: `Claude Sonnet 4.6`
 
-## Outcomes — ComplianceAuditor (Stage 3 rules engine, built)
+## Outcomes — All four coded agents (Stages 2 + 3, complete)
+
+| Agent | Framework | Tests |
+|---|---|---|
+| ComplianceAuditor | LangGraph | 255 |
+| RecoveryOracle | Pydantic AI | 60 |
+| DemandSmith | LangChain | 80 |
+| PaperTrail | LangChain | 65 |
+| **Total** | | **460** |
 
 | Metric | Value |
 |---|---|
-| Build phases | 4 (deterministic rules → mixed rules → LLM rules → LangGraph orchestration) |
-| Tests produced | 255 |
-| &nbsp;&nbsp;— Citations | 78 |
-| &nbsp;&nbsp;— Deterministic rules | 49 |
-| &nbsp;&nbsp;— Mixed rules | 35 |
-| &nbsp;&nbsp;— LLM rules | 20 |
-| &nbsp;&nbsp;— Orchestration | 36 |
-| &nbsp;&nbsp;— LLM client | 5 |
-| &nbsp;&nbsp;— Integration | 22 |
-| &nbsp;&nbsp;— Cross-cutting | 10 |
-| Real bugs found and fixed | 1 (R002 substring-detection — surfaced via integration testing on realistic fixture data) |
+| Total tests passing | 460 |
+| Real bugs found and fixed | 6 across four agents (R002 substring-detection; clip_confidence boundary; expected_recovery_usd LLM-vs-Python split; tone selection edge case; BOL regex VERBOSE-mode failure; tariff two-pattern extraction) |
 | CFR corrections caught against spec | 3 (R001 §541.6 → §541.7(a); R007 §541.6(b) → §541.6(e)(2); R008 §541.7 → §541.8(a)) — verified against the current eCFR after the 2024 Part 541 rewrite (89 FR 14330) |
-| External frameworks integrated | LangGraph, LangChain, Pydantic v2, pytest |
-| Lines of code produced | ~3,500 (rules + tests + schemas + orchestration, estimated) |
-| Build duration | ~3 days, spread across multiple Claude Code sessions |
+| External frameworks integrated | LangGraph, LangChain, Pydantic AI, Pydantic v2, pytest |
+| Lines of code produced | ~7,000 (all agents + schemas + tests, estimated) |
+| Build duration | ~6 days across multiple Claude Code sessions |
 
 ## What Claude Code did NOT do
 
@@ -59,9 +58,9 @@ Each subfolder corresponds to one agent or component in the DisputeOps system:
 | Subfolder | Agent / Component | Status |
 |---|---|---|
 | `01-compliance-auditor/` | ComplianceAuditor (LangGraph, Stage 3) | ✅ Complete |
-| `02-recovery-oracle/` | RecoveryOracle (Pydantic AI, Stage 3) | ⏳ Planned |
-| `03-demand-smith/` | DemandSmith (LangChain, Stage 3) | ⏳ Planned |
-| `04-paper-trail/` | PaperTrail (LangChain, Stage 2) | ⏳ Planned |
+| `02-recovery-oracle/` | RecoveryOracle (Pydantic AI, Stage 3) | ✅ Complete |
+| `03-demand-smith/` | DemandSmith (LangChain, Stage 3) | ✅ Complete |
+| `04-paper-trail/` | PaperTrail (LangChain, Stage 2) | ✅ Complete |
 | `05-simulator/` | Case simulator and orchestration harness | ⏳ Planned |
 | `06-uipath-integration/` | Maestro Case wiring, Action Center forms, DMN tables | ⏳ Planned |
 
@@ -81,7 +80,7 @@ A judge reviewing this submission can verify the +2 bonus criteria as follows:
 1. **Tool identification**: see the "Tool used" section above.
 2. **Contribution description**: see the "Outcomes" and "What Claude Code did NOT do" sections.
 3. **Verifiable evidence**: open any populated subfolder (starting with `01-compliance-auditor/`) and review the `prompts/`, `session.md`, `screenshots/`, and `changelog.md` artifacts.
-4. **Code-level verification**: the test count claimed in this README is reproducible — clone the repo, install dependencies per the top-level `README.md`, and run `pytest`. The 255-test claim is verifiable in under five minutes.
+4. **Code-level verification**: the test count claimed in this README is reproducible — clone the repo, install dependencies per the top-level `README.md`, and run `pytest`. The 460-test claim is verifiable in under five minutes.
 
 ## Submission context
 

@@ -17,7 +17,7 @@ gathering) before being handed to ComplianceAuditor in Stage 3.
 from __future__ import annotations
 
 import logging
-from datetime import date, datetime
+from datetime import date, datetime, timezone
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, model_validator
@@ -84,7 +84,7 @@ class TerminalRecord(BaseModel):
         notes: Free-text field from the TOS, if present.
     """
 
-    model_config = {"frozen": True}
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     record_id: str = Field(..., description="Unique ID from TOS export")
     event_type: Literal[
@@ -139,7 +139,7 @@ class Invoice(BaseModel):
             as printed on the invoice.
     """
 
-    model_config = {"frozen": True}
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     invoice_number: str = Field(..., description="Carrier-assigned invoice ID")
     carrier_name: str = Field(..., min_length=1, description="Full legal name of billing carrier")
@@ -244,7 +244,7 @@ class EvidencePackage(BaseModel):
             cross-check R003 (correct billing party).
     """
 
-    model_config = ConfigDict(frozen=True)
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     gate_in_timestamp: datetime | None = Field(
         default=None, description="UTC gate-in from driver log or terminal portal"
@@ -334,7 +334,7 @@ class DisputeCase(BaseModel):
         created_at: UTC timestamp when the case was created in DisputeOps.
     """
 
-    model_config = {"frozen": True}
+    model_config = ConfigDict(frozen=True, extra="forbid")
 
     case_id: str = Field(..., min_length=1, description="Globally unique case ID")
     invoice: Invoice = Field(..., description="The carrier invoice under audit")
@@ -342,6 +342,6 @@ class DisputeCase(BaseModel):
         ..., description="Evidence package from Stage 2 gathering"
     )
     created_at: datetime = Field(
-        default_factory=datetime.utcnow,
+        default_factory=lambda: datetime.now(timezone.utc),
         description="UTC timestamp when the case was created",
     )
