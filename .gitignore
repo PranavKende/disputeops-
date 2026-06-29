@@ -35,6 +35,9 @@ dmypy.json
 *~
 .DS_Store
 
+# Node.js
+node_modules/
+
 # Build artifacts
 *.egg-info/
 *.egg

@@ -1,0 +1,280 @@
+{
+  "version": "2.0",
+  "resources": [
+    {
+      "resource": "EventTrigger",
+      "key": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1_trigger_1",
+      "id": "EventTrigger15e10e06-63b5-48d6-a94a-1e0b1daf52d1_trigger_1",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+          "isExpression": false
+        },
+        "EntryPointUniqueId": {
+          "defaultValue": "0625f5c2-2ac4-4e32-a8d2-a0d99c063879",
+          "isExpression": false
+        }
+      },
+      "metadata": {
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-drive",
+        "ActivityName": "Start Manually",
+        "BindingsVersion": "2.2",
+        "ObjectName": "File",
+        "Operation": "FILE_CREATED",
+        "FilterExpression": "(ParentID == '1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r')"
+      }
+    },
+    {
+      "resource": "Property",
+      "key": "FILE_CREATED_EventTrigger.15e10e06-63b5-48d6-a94a-1e0b1daf52d1_trigger_1",
+      "value": {
+        "ParentDriveID": {
+          "defaultValue": "0AJqLzq348nCQUk9PVA",
+          "isExpression": false
+        }
+      },
+      "activityDisplayName": "Connector",
+      "metadata": {
+        "ActivityName": "Start Manually",
+        "BindingsVersion": "2.2",
+        "ObjectName": "File",
+        "ParentResourceKey": "EventTrigger.15e10e06-63b5-48d6-a94a-1e0b1daf52d1_trigger_1",
+        "TriggerCreateParameters": "ParentDriveID",
+        "DebugQueryParameters": "ParentDriveID"
+      },
+      "id": "Property_trigger_1"
+    },
+    {
+      "resource": "process",
+      "key": "Shared.compliance-auditor-agent-v2",
+      "id": "processShared.compliance-auditor-agent-v2",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "compliance-auditor-agent-v2",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "ComplianceAuditor",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared.recovery-oracle-agent-v2",
+      "id": "processShared.recovery-oracle-agent-v2",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "recovery-oracle-agent-v2",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "RecoveryOracle",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared.demand-smith-agent-v2",
+      "id": "processShared.demand-smith-agent-v2",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "demand-smith-agent-v2",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "DemandSmith",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared/ChargeTagger.ChargerTaggerAgent",
+      "id": "processShared/ChargeTagger.ChargerTaggerAgent",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/ChargeTagger",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "ChargerTaggerAgent",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "ChargeTagger",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Agent"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared/IXP_invoiceLens.InvoiceLens",
+      "id": "processShared/IXP_invoiceLens.InvoiceLens",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/IXP_invoiceLens",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "InvoiceLens",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "InvoiceLens",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared/Hackathon-DisputeOps.GateHarvester",
+      "id": "processShared/Hackathon-DisputeOps.GateHarvester",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/Hackathon-DisputeOps",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "GateHarvester",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "GateHarvester",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared/Hackathon-DisputeOps.CarrierBridge",
+      "id": "processShared/Hackathon-DisputeOps.CarrierBridge",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/Hackathon-DisputeOps",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "CarrierBridge",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "CarrierBridge",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true",
+        "subType": "Api"
+      }
+    },
+    {
+      "resource": "process",
+      "key": "Shared/Hackathon-DisputeOps.FilingRunner",
+      "id": "processShared/Hackathon-DisputeOps.FilingRunner",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/Hackathon-DisputeOps",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "FilingRunner",
+          "isExpression": false,
+          "displayName": "Process name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "FilingRunner",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "app",
+      "key": "Shared.dispute-approval-app",
+      "id": "appShared.dispute-approval-app",
+      "value": {
+        "folderPath": {
+          "defaultValue": "Shared/Hackathon-DisputeOps",
+          "isExpression": false,
+          "displayName": "Folder path"
+        },
+        "name": {
+          "defaultValue": "ApprovalGate",
+          "isExpression": false,
+          "displayName": "App name"
+        }
+      },
+      "metadata": {
+        "ActivityName": "ApprovalGate",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "name",
+        "SolutionsSupport": "true"
+      }
+    },
+    {
+      "resource": "Connection",
+      "key": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+      "id": "Connection15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+      "value": {
+        "ConnectionId": {
+          "defaultValue": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+          "isExpression": false,
+          "displayName": "uipath-google-drive connection"
+        }
+      },
+      "metadata": {
+        "ActivityName": "Start Manually",
+        "BindingsVersion": "2.2",
+        "DisplayLabel": "uipath-google-drive connection",
+        "UseConnectionService": "true",
+        "Connector": "uipath-google-drive"
+      }
+    }
+  ]
+}

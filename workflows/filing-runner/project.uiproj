@@ -1,0 +1,6 @@
+{
+  "Name": "FilingRunner",
+  "ProjectType": "Process",
+  "Description": "Files the dispute submission package to the FMC portal",
+  "MainFile": "Main.xaml"
+}

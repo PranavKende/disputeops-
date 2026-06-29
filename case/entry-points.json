@@ -1,0 +1,55 @@
+{
+  "$schema": "https://cloud.uipath.com/draft/2024-12/entry-point",
+  "$id": "entry-points.json",
+  "entryPoints": [
+    {
+      "filePath": "/content/caseplan.json.bpmn#trigger_1",
+      "uniqueId": "0625f5c2-2ac4-4e32-a8d2-a0d99c063879",
+      "type": "CaseManagement",
+      "input": {
+        "type": "object",
+        "properties": {
+          "invoice_document": {
+            "$ref": "#/definitions/job-attachment"
+          }
+        },
+        "required": [],
+        "definitions": {
+          "job-attachment": {
+            "type": "object",
+            "properties": {
+              "ID": {
+                "type": "string",
+                "description": "Orchestrator attachment key"
+              },
+              "FullName": {
+                "type": "string",
+                "description": "File name"
+              },
+              "MimeType": {
+                "type": "string",
+                "description": "The MIME type of the content, such as \"application/json\" or \"image/png"
+              },
+              "Metadata": {
+                "type": "object",
+                "description": "Dictionary<string, string> of metadata",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "ID"
+            ],
+            "x-uipath-resource-kind": "JobAttachment"
+          }
+        }
+      },
+      "output": {
+        "type": "object",
+        "properties": {}
+      },
+      "displayName": "Start Manually"
+    }
+  ]
+}

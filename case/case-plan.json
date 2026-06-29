@@ -1,0 +1,583 @@
+{
+  "case": {
+    "completionConditions": [
+      {
+        "completionConditionType": "StagesCompleted",
+        "parameters": {
+          "stageNames": [
+            "Filing"
+          ]
+        },
+        "ruleName": "Resolved — Credit Issued"
+      },
+      {
+        "completionConditionType": "StagesCompleted",
+        "parameters": {
+          "stageNames": [
+            "Approval"
+          ]
+        },
+        "ruleName": "Closed — Written Off"
+      },
+      {
+        "completionConditionType": "StagesCompleted",
+        "parameters": {
+          "stageNames": [
+            "Escalated to FMC"
+          ]
+        },
+        "ruleName": "Closed — Escalated to FMC"
+      }
+    ]
+  },
+  "stages": [
+    {
+      "name": "Intake",
+      "entryConditions": [
+        {
+          "entryConditionType": "CaseEntered",
+          "parameters": {},
+          "ruleName": "Case started"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Intake\")",
+                "expressionString": "(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Intake\")"
+              }
+            },
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              }
+            }
+          ],
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "exitConditions": [],
+      "completionConditions": [
+        {
+          "completionConditionType": "TasksCompleted",
+          "parameters": {
+            "taskNames": [
+              "ChargeTagger",
+              "InvoiceLens"
+            ]
+          },
+          "ruleName": "Intake complete"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "InvoiceLens",
+          "runOnlyOnce": false,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Intake"
+                ]
+              },
+              "ruleName": "Entry rule 1"
+            }
+          ]
+        },
+        {
+          "name": "ChargeTagger",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "InvoiceLens"
+                ]
+              },
+              "ruleName": "After InvoiceLens"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evidence",
+      "entryConditions": [
+        {
+          "entryConditionType": "StagesCompleted",
+          "parameters": {
+            "stageNames": [
+              "Intake"
+            ]
+          },
+          "ruleName": "After Intake"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Evidence\")",
+                "expressionString": "(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Evidence\")"
+              }
+            },
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              }
+            }
+          ],
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "exitConditions": [],
+      "completionConditions": [
+        {
+          "completionConditionType": "TasksCompleted",
+          "parameters": {
+            "taskNames": [
+              "GateHarvester",
+              "CarrierBridge"
+            ]
+          },
+          "ruleName": "Evidence complete"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "GateHarvester",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Evidence"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        },
+        {
+          "name": "CarrierBridge",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "GateHarvester"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analysis",
+      "entryConditions": [
+        {
+          "entryConditionType": "StagesCompleted",
+          "parameters": {
+            "stageNames": [
+              "Evidence"
+            ]
+          },
+          "ruleName": "After Evidence"
+        },
+        {
+          "entryConditionType": "StagesExited",
+          "parameters": {
+            "stageNames": [
+              "Filing"
+            ]
+          },
+          "ruleName": "Rework from Filing (carrier denied)"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Analysis\")",
+                "expressionString": "(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Analysis\")"
+              }
+            },
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              }
+            }
+          ],
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "exitConditions": [],
+      "completionConditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "completionConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "ComplianceAuditor",
+                  "RecoveryOracle",
+                  "DemandSmith"
+                ]
+              }
+            },
+            {
+              "completionConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.recommended_action === 'auto_file'",
+                "expressionString": "vars.recommended_action === 'auto_file'"
+              }
+            }
+          ],
+          "ruleName": "Auto-file → Filing"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "completionConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "ComplianceAuditor",
+                  "RecoveryOracle",
+                  "DemandSmith"
+                ]
+              }
+            },
+            {
+              "completionConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.recommended_action === 'human_review'",
+                "expressionString": "vars.recommended_action === 'human_review'"
+              }
+            }
+          ],
+          "ruleName": "Human review → Approval"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "ComplianceAuditor",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Analysis"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        },
+        {
+          "name": "RecoveryOracle",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "ComplianceAuditor"
+                ]
+              },
+              "ruleName": "After ComplianceAuditor"
+            }
+          ]
+        },
+        {
+          "name": "DemandSmith",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "RecoveryOracle"
+                ]
+              },
+              "ruleName": "After RecoveryOracle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Approval",
+      "entryConditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Analysis"
+                ]
+              }
+            },
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.recommended_action === 'human_review'",
+                "expressionString": "vars.recommended_action === 'human_review'"
+              }
+            }
+          ],
+          "ruleName": "Human review needed"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Approval\")",
+                "expressionString": "(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Approval\")"
+              }
+            },
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              }
+            }
+          ],
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "exitConditions": [],
+      "completionConditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "completionConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "ApprovalGate"
+                ]
+              }
+            },
+            {
+              "completionConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.approval_decision === 'approved'",
+                "expressionString": "vars.approval_decision === 'approved'"
+              }
+            }
+          ],
+          "ruleName": "Approved → Filing"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "ApprovalGate",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Approval"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Filing",
+      "entryConditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "StagesExited",
+              "parameters": {
+                "stageNames": [
+                  "Analysis"
+                ]
+              }
+            },
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.recommended_action === 'auto_file'",
+                "expressionString": "vars.recommended_action === 'auto_file'"
+              }
+            }
+          ],
+          "ruleName": "Auto-file from Analysis"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "StagesExited",
+              "parameters": {
+                "stageNames": [
+                  "Approval"
+                ]
+              }
+            },
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.approval_decision === 'approved'",
+                "expressionString": "vars.approval_decision === 'approved'"
+              }
+            }
+          ],
+          "ruleName": "Approved by reviewer"
+        },
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "entryConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Filing\")",
+                "expressionString": "(vars.MainEventSubprocessLocalLastPrimaryStageExited != null && vars.MainEventSubprocessLocalLastPrimaryStageExited == \"Filing\")"
+              }
+            },
+            {
+              "entryConditionType": "StagesCompleted",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              }
+            }
+          ],
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "exitConditions": [
+        {
+          "operator": "AND",
+          "conditions": [
+            {
+              "exitConditionType": "TasksCompleted",
+              "parameters": {
+                "taskNames": [
+                  "FilingRunner"
+                ]
+              }
+            },
+            {
+              "exitConditionType": "Expression",
+              "parameters": {
+                "expression": "=js:vars.carrier_response === 'denied'",
+                "expressionString": "vars.carrier_response === 'denied'"
+              }
+            }
+          ],
+          "ruleName": "Carrier denied → Rework to Analysis"
+        }
+      ],
+      "completionConditions": [
+        {
+          "completionConditionType": "TasksCompleted",
+          "parameters": {
+            "taskNames": [
+              "FilingRunner"
+            ]
+          },
+          "ruleName": "Filing complete"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "FilingRunner",
+          "runOnlyOnce": true,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Filing"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Escalated to FMC",
+      "entryConditions": [
+        {
+          "entryConditionType": "StagesExited",
+          "parameters": {
+            "stageNames": [
+              "Filing"
+            ],
+            "cancelStagesAndTasks": true
+          },
+          "ruleName": "SLA breach — Filing exited"
+        }
+      ],
+      "exitConditions": [],
+      "completionConditions": [
+        {
+          "completionConditionType": "TasksCompleted",
+          "parameters": {
+            "taskNames": [
+              "EscalationReview"
+            ]
+          },
+          "ruleName": "Reviewed — return to Filing"
+        }
+      ],
+      "tasks": [
+        {
+          "name": "EscalationReview",
+          "runOnlyOnce": false,
+          "entryConditions": [
+            {
+              "entryConditionType": "StageEntered",
+              "parameters": {
+                "stageNames": [
+                  "Escalated to FMC"
+                ]
+              },
+              "ruleName": "Stage entered"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "version": 1
+}

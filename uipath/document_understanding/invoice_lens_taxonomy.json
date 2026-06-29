@@ -1,0 +1,153 @@
+{
+  "_meta": {
+    "name": "invoice_lens",
+    "title": "InvoiceLens — Demurrage / Detention Invoice Extractor",
+    "description": "Generative Extraction taxonomy for freight demurrage/detention invoices in the DisputeOps pipeline. Maps invoice PDF fields to the data.schemas.case.Invoice model consumed by the PaperTrail agent.",
+    "provenance": "Hand-authored from the DisputeOps Invoice/EvidencePackage Pydantic schemas and the three test-fixture PDFs (empire_freight, pacific_liner, coastal_carrier). This is a source-controlled extraction spec, NOT a live export from a UiPath Document Understanding project — no `uip ixp` CLI is available in this environment, so the taxonomy could not be exported from a deployed model. Use this file as the import payload when creating the project in the DU web portal.",
+    "schema_version": "1.0",
+    "extractor": "Generative",
+    "target_model": "data.schemas.case.Invoice",
+    "authored": "2026-05-31"
+  },
+  "documentTypes": [
+    {
+      "name": "demurrage_detention_invoice",
+      "title": "Demurrage / Detention Invoice",
+      "structure": "semi-structured",
+      "fields": [
+        {
+          "name": "invoice_number",
+          "type": "Text",
+          "required": true,
+          "instruction": "The carrier's invoice identifier, labeled 'Invoice No.'. Example: EMFR-INV-2026-0491. Extract verbatim including the alphanumeric prefix and hyphens.",
+          "maps_to": "Invoice.invoice_number"
+        },
+        {
+          "name": "carrier_name",
+          "type": "Text",
+          "required": true,
+          "instruction": "The billing carrier / NVOCC / VOCC name, shown in the letterhead at the top of the page (e.g. 'Empire Freight Lines'). Do NOT use the 'Notify' or 'Shipper' party.",
+          "maps_to": "Invoice.carrier_name"
+        },
+        {
+          "name": "bol_number",
+          "type": "Text",
+          "required": false,
+          "instruction": "Bill of Lading number, labeled 'BOL Number'. Example: EMFR20260401-001.",
+          "maps_to": "Invoice.bol_number"
+        },
+        {
+          "name": "container_number",
+          "type": "Text",
+          "required": false,
+          "instruction": "ISO container number, labeled 'Container Number', typically 4 letters followed by 7 digits. Example: MEDU9871234.",
+          "maps_to": "Invoice.container_number"
+        },
+        {
+          "name": "charge_type",
+          "type": "Classification",
+          "required": true,
+          "values": ["demurrage", "detention"],
+          "instruction": "Whether the charge is 'demurrage' or 'detention', labeled 'Charge Type'. Normalize to lowercase. The document header may show 'DEMURRAGE / DETENTION INVOICE' generically — use the specific 'Charge Type' field value, not the header.",
+          "maps_to": "Invoice.charge_type"
+        },
+        {
+          "name": "charge_incurred_date",
+          "type": "Date",
+          "format": "yyyy-MM-dd",
+          "required": true,
+          "instruction": "Date the charge was incurred, labeled 'Charge Incurred Date'. Example: 2026-05-09.",
+          "maps_to": "Invoice.charge_incurred_date"
+        },
+        {
+          "name": "invoice_date",
+          "type": "Date",
+          "format": "yyyy-MM-dd",
+          "required": true,
+          "instruction": "Date the invoice was issued, labeled 'Invoice Date'. Example: 2026-06-25.",
+          "maps_to": "Invoice.invoice_date"
+        },
+        {
+          "name": "free_time_start",
+          "type": "Date",
+          "format": "yyyy-MM-dd",
+          "required": false,
+          "instruction": "Start of the free-time window, labeled 'Free Time Start'. NOTE: the document carries date only; no time-of-day is printed. Downstream defaults the time to 08:00 UTC.",
+          "maps_to": "Invoice.free_time_start (date component only)"
+        },
+        {
+          "name": "free_time_end",
+          "type": "Date",
+          "format": "yyyy-MM-dd",
+          "required": false,
+          "instruction": "End of the free-time window, labeled 'Free Time End'. Date only; see free_time_start note.",
+          "maps_to": "Invoice.free_time_end (date component only)"
+        },
+        {
+          "name": "published_free_time_days",
+          "type": "Number",
+          "required": false,
+          "instruction": "Published free time, labeled 'Published Free Time', usually expressed in days (e.g. '3 days' -> 3). Extract the numeric quantity. May be 'N/A' (leave empty).",
+          "maps_to": "EvidencePackage.published_free_time_days"
+        },
+        {
+          "name": "tariff_number",
+          "type": "Text",
+          "required": false,
+          "instruction": "Tariff identifier, labeled 'Tariff Reference' (prefixed with the word 'tariff'). Extract only the identifier, e.g. 'EMFR-2024-DEM', dropping the leading word 'tariff'.",
+          "maps_to": "EvidencePackage.carrier_tariff_reference.tariff_number"
+        },
+        {
+          "name": "hours_billed",
+          "type": "Number",
+          "required": true,
+          "instruction": "Number of hours billed, in the Billing Summary description cell. May appear as '56.0 hours' or as 'N.NN days (NN.0 hours)' — always extract the HOURS value, not the days value. Example: from '3.00 days (72.0 hours)' extract 72.0.",
+          "maps_to": "Invoice.hours_billed"
+        },
+        {
+          "name": "hourly_rate_usd",
+          "type": "Number",
+          "required": false,
+          "instruction": "The per-unit rate from the rate column. Header may read 'Per Hour Rate' or 'Per Day Rate'; value carries a '/hr' or '/day' suffix. Extract the numeric amount (strip '$' and the unit suffix). Capture the unit separately if possible.",
+          "maps_to": "Invoice.hourly_rate_usd"
+        },
+        {
+          "name": "rate_unit",
+          "type": "Classification",
+          "required": false,
+          "values": ["hr", "day"],
+          "instruction": "Whether the rate is per '/hr' or '/day', from the suffix on the rate value and the rate-column header. Caution: the 'Basis for Charge' prose may state a different unit than the billing table (e.g. table says '/day' while prose says '/hour') — prefer the billing-table suffix.",
+          "maps_to": "derived (Invoice.billed_unit_inferred)"
+        },
+        {
+          "name": "total_amount_usd",
+          "type": "Number",
+          "required": true,
+          "instruction": "Total amount due, labeled 'Total Amount Due', and matching the Amount column. Extract the numeric value without the '$' or thousands separators. Example: 3920.00.",
+          "maps_to": "Invoice.total_amount_usd"
+        },
+        {
+          "name": "billed_to_party",
+          "type": "Text",
+          "required": true,
+          "instruction": "The party being billed, labeled 'Bill To'. Example: 'Pacifica Apparel Inc.'.",
+          "maps_to": "Invoice.billed_to_party"
+        },
+        {
+          "name": "basis_for_charge",
+          "type": "Text",
+          "required": false,
+          "instruction": "Free-text justification under the 'Basis for Charge' heading. Capture the full paragraph verbatim, including any dispute email/URL and tariff references.",
+          "maps_to": "Invoice.basis_for_charge"
+        },
+        {
+          "name": "bol_terms",
+          "type": "Text",
+          "required": false,
+          "instruction": "Free-text under 'Bill of Lading Terms' — shipper, carrier, port of discharge, container, terms, notify party. Capture the full paragraph verbatim.",
+          "maps_to": "EvidencePackage.bol_terms"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "GateHarvester",
+  "projectId": "a473ef38-34a8-4148-a7a4-46735a8b2f6b",
+  "description": "Demo stand-in for GateHarvester — returns hard-coded gate/port evidence in place of a real TMS scraper.",
+  "main": "Main.xaml",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "f2fe1e0c-bd94-4e16-ba45-9e2f5ab01ad1",
+      "input": [
+        { "name": "in_case_id", "type": "System.String", "required": false },
+        { "name": "in_container_number", "type": "System.String", "required": false }
+      ],
+      "output": [
+        { "name": "out_gate_in_timestamp", "type": "System.String" },
+        { "name": "out_gate_out_timestamp", "type": "System.String" },
+        { "name": "out_weather_events", "type": "System.Collections.Generic.List`1[[System.String, mscorlib]]" },
+        { "name": "out_terminal_records", "type": "System.Collections.Generic.List`1[[System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Object, mscorlib]]]]" }
+      ]
+    }
+  ],
+  "dependencies": {
+    "UiPath.System.Activities": "[26.6.0]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "26.0.195.0",
+  "projectVersion": "1.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": false,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "workflowSerialization": "NewtonsoftJson",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "expressionLanguage": "CSharp",
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Portable"
+}

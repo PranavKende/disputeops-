@@ -1,0 +1,29 @@
+{
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "overall_strength": { "type": "string", "required": false, "description": "Verdict strength of the dispute" },
+      "violation_count": { "type": "integer", "required": false, "description": "Number of compliance violations found" },
+      "recovery_probability": { "type": "number", "required": false, "description": "Estimated probability of recovery (0-1)" },
+      "total_amount_usd": { "type": "number", "required": false, "description": "Disputed amount in USD" },
+      "letter_data": { "type": "object", "required": false, "description": "Draft demand letter produced by DemandSmith" }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "decision": { "type": "string", "required": false, "description": "approved or rejected (set by the chosen outcome)" }
+    }
+  },
+  "inOuts": {
+    "type": "object",
+    "properties": {}
+  },
+  "outcomes": {
+    "type": "object",
+    "properties": {
+      "Approve": { "type": "string" },
+      "Reject": { "type": "string" }
+    }
+  }
+}

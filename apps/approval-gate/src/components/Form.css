@@ -1,0 +1,129 @@
+:root {
+  --bg: #ffffff;
+  --panel: #f6f7f9;
+  --border: #e2e5ea;
+  --text: #1c2024;
+  --muted: #6b7280;
+  --approve: #1f8b4c;
+  --approve-hover: #176b3a;
+  --reject: #c0392b;
+  --reject-hover: #97291d;
+}
+
+body.dark {
+  --bg: #1c2024;
+  --panel: #262b31;
+  --border: #3a414a;
+  --text: #e8eaed;
+  --muted: #9aa3ad;
+}
+
+* { box-sizing: border-box; }
+
+.approval {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 24px 28px;
+}
+
+.approval-header h1 {
+  font-size: 20px;
+  margin: 0 0 4px;
+}
+
+.approval-header p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 560px) {
+  .metrics { grid-template-columns: repeat(4, 1fr); }
+}
+
+.metric {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.metric-value {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.strength-strong { color: var(--approve); }
+.strong, .strength-moderate { color: #b8860b; }
+.strength-weak { color: var(--reject); }
+
+.letter h2 {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.letter-body {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  max-height: 320px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-approve { background: var(--approve); }
+.btn-approve:not(:disabled):hover { background: var(--approve-hover); }
+.btn-reject { background: var(--reject); }
+.btn-reject:not(:disabled):hover { background: var(--reject-hover); }
+
+.readonly-note {
+  text-align: right;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 10px 0 0;
+}

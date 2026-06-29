@@ -1,0 +1,6 @@
+{
+  "ProjectType": "Api",
+  "Name": "CarrierBridge",
+  "Description": "Demo stand-in for CarrierBridge — composes the dispute evidence package from gate + carrier facts. Hard-coded carrier API response in place of a real integration.",
+  "MainFile": "main.json"
+}

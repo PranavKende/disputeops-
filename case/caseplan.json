@@ -1,0 +1,3309 @@
+{
+  "id": "case-Dq7Km3Xp9R",
+  "version": "21.0.0",
+  "name": "DisputeOpe_Test02",
+  "metadata": {
+    "caseIdentifier": "DEMO",
+    "caseIdentifierType": "constant",
+    "caseAppEnabled": true,
+    "publishVersion": 3,
+    "caseUnifiedSchemaEnabled": true,
+    "caseExitRules": [
+      {
+        "id": "Condition_Cr8k2w",
+        "displayName": "Resolved \u2014 Credit Issued",
+        "marksCaseComplete": true,
+        "rules": [
+          [
+            {
+              "id": "Rule_Cr3n7p",
+              "rule": "selected-stage-completed",
+              "selectedStageId": "Stage_Fi2rb7"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "Condition_Wo5m9q",
+        "displayName": "Closed \u2014 Written Off",
+        "marksCaseComplete": false,
+        "rules": [
+          [
+            {
+              "id": "Rule_Wo2k8x",
+              "rule": "selected-stage-completed",
+              "selectedStageId": "Stage_Ap9wz6"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "Condition_Es7p4x",
+        "displayName": "Closed \u2014 Escalated to FMC",
+        "marksCaseComplete": false,
+        "rules": [
+          [
+            {
+              "id": "Rule_Es9k3w",
+              "rule": "selected-stage-completed",
+              "selectedStageId": "Stage_Es6vk9"
+            }
+          ]
+        ]
+      }
+    ],
+    "intsvcActivityConfig": "v2"
+  },
+  "bindings": [
+    {
+      "id": "bK7m2Qp9",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.compliance-auditor-agent-v2",
+      "default": "compliance-auditor-agent-v2",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bH4n8Wt3",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.compliance-auditor-agent-v2",
+      "default": "Shared",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bV5c9Rb2",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.recovery-oracle-agent-v2",
+      "default": "recovery-oracle-agent-v2",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bN3x6Lk8",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.recovery-oracle-agent-v2",
+      "default": "Shared",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bD7r4Km2",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.demand-smith-agent-v2",
+      "default": "demand-smith-agent-v2",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bF9w2Ln5",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared.demand-smith-agent-v2",
+      "default": "Shared",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bC4tg7Nm2",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared/ChargeTagger.ChargerTaggerAgent",
+      "default": "ChargerTaggerAgent",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bC8fp3Wk5",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Agent",
+      "resourceKey": "Shared/ChargeTagger.ChargerTaggerAgent",
+      "default": "Shared/ChargeTagger",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bIL7nm2Kp",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "ProcessOrchestration",
+      "resourceKey": "Shared.InvoiceLens",
+      "default": "InvoiceLens",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bIL3fp9Wq",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "ProcessOrchestration",
+      "resourceKey": "Shared.InvoiceLens",
+      "default": "Shared",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bpF0Muf5n",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1.InvoiceLens",
+      "default": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bo29a2Xeq",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1.InvoiceLens",
+      "default": "InvoiceLens",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bMXRcS0yp",
+      "name": "uipath-microsoft-onedrive connection",
+      "type": "string",
+      "resource": "Connection",
+      "resourceKey": "09a3aa96-60bc-437b-886e-030e3403d7e4",
+      "default": "09a3aa96-60bc-437b-886e-030e3403d7e4",
+      "propertyAttribute": "ConnectionId"
+    },
+    {
+      "id": "bw7ZZU9Hc",
+      "name": "FolderKey",
+      "type": "string",
+      "resource": "Connection",
+      "resourceKey": "09a3aa96-60bc-437b-886e-030e3403d7e4",
+      "default": "0542afc7-4c88-4492-b61d-ee6b2f5c5e94",
+      "propertyAttribute": "folderKey"
+    },
+    {
+      "id": "bgme1Nm4d",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "InvoiceLens_3",
+      "default": "",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bKqmniGWE",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "InvoiceLens_3",
+      "default": "InvoiceLens_3",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bas2k9ws8",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "InvoiceLens",
+      "default": "",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bEifGAzTy",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "InvoiceLens",
+      "default": "InvoiceLens",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "boSjTpejO",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/IXP_invoiceLens.InvoiceLens",
+      "default": "Shared/IXP_invoiceLens",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "buYl1WqBl",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/IXP_invoiceLens.InvoiceLens",
+      "default": "InvoiceLens",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bZGaUyYY3",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/Hackathon-DisputeOps.GateHarvester",
+      "default": "GateHarvester",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bs13g1SOI",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/Hackathon-DisputeOps.GateHarvester",
+      "default": "Shared/Hackathon-DisputeOps",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bOh1OCO7i",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Api",
+      "resourceKey": "Shared/Hackathon-DisputeOps.CarrierBridge",
+      "default": "CarrierBridge",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bVMEPNa7p",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceSubType": "Api",
+      "resourceKey": "Shared/Hackathon-DisputeOps.CarrierBridge",
+      "default": "Shared/Hackathon-DisputeOps",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bETju1b6P",
+      "name": "name",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/Hackathon-DisputeOps.FilingRunner",
+      "default": "FilingRunner",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bApGnmApp01",
+      "name": "name",
+      "type": "string",
+      "resource": "app",
+      "resourceKey": "Shared.dispute-approval-app",
+      "default": "ApprovalGate",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bApFpApp001",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "app",
+      "resourceKey": "Shared.dispute-approval-app",
+      "default": "Shared/Hackathon-DisputeOps",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "b0IP38RBi",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "process",
+      "resourceKey": "Shared/Hackathon-DisputeOps.FilingRunner",
+      "default": "Shared/Hackathon-DisputeOps",
+      "propertyAttribute": "folderPath"
+    },
+    {
+      "id": "bxIpP8Euq",
+      "name": "uipath-google-drive connection",
+      "type": "string",
+      "resource": "Connection",
+      "resourceKey": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+      "default": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+      "propertyAttribute": "ConnectionId"
+    },
+    {
+      "id": "bEkmm29Th",
+      "name": "FolderKey",
+      "type": "string",
+      "resource": "Connection",
+      "resourceKey": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+      "default": "69ae3a3f-b138-4673-aa00-e9abfc76ff3c",
+      "propertyAttribute": "folderKey"
+    },
+    {
+      "id": "bEsGnmApp01",
+      "name": "name",
+      "type": "string",
+      "resource": "app",
+      "resourceKey": "Shared.dispute-approval-app",
+      "default": "EscalationReview",
+      "propertyAttribute": "name"
+    },
+    {
+      "id": "bEsFpApp001",
+      "name": "folderPath",
+      "type": "string",
+      "resource": "app",
+      "resourceKey": "Shared.dispute-approval-app",
+      "default": "Shared/Hackathon-DisputeOps",
+      "propertyAttribute": "folderPath"
+    }
+  ],
+  "variables": {
+    "inputs": [
+      {
+        "id": "vInvDoc001",
+        "name": "invoice_document",
+        "type": "file",
+        "default": "",
+        "elementId": "trigger_1",
+        "body": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "ID": {
+              "type": "string",
+              "description": "Orchestrator attachment key"
+            },
+            "FullName": {
+              "type": "string",
+              "description": "File name"
+            },
+            "MimeType": {
+              "type": "string",
+              "description": "The MIME type of the content, such as application/json or image/png"
+            },
+            "Metadata": {
+              "type": "object",
+              "description": "Dictionary<string, string> of metadata",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "ID"
+          ],
+          "x-uipath-resource-kind": "JobAttachment"
+        }
+      }
+    ],
+    "outputs": [],
+    "inputOutputs": [
+      {
+        "id": "case_id",
+        "name": "case_id",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "container_number",
+        "name": "container_number",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "recommended_action",
+        "name": "recommended_action",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "carrier_response",
+        "name": "carrier_response",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "approval_decision",
+        "name": "approval_decision",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "charge_type",
+        "name": "charge_type",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "overall_strength",
+        "name": "overall_strength",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "recovery_probability",
+        "name": "recovery_probability",
+        "type": "float",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "violation_count",
+        "name": "violation_count",
+        "type": "integer",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "total_rules_evaluated",
+        "name": "total_rules_evaluated",
+        "type": "integer",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "violations",
+        "name": "violations",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "_jsonSchema": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      {
+        "id": "cannot_evaluate",
+        "name": "cannot_evaluate",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "_jsonSchema": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      {
+        "id": "clean_results",
+        "name": "clean_results",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "_jsonSchema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      {
+        "id": "summary",
+        "name": "summary",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "expected_recovery_usd",
+        "name": "expected_recovery_usd",
+        "type": "float",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "confidence",
+        "name": "confidence",
+        "type": "float",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "reasoning",
+        "name": "reasoning",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "key_factors",
+        "name": "key_factors",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "_jsonSchema": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      {
+        "id": "total_amount_usd",
+        "name": "total_amount_usd",
+        "type": "float",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "invoice_data",
+        "name": "invoice_data",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object",
+          "properties": {
+            "invoice_number": {
+              "type": "string"
+            },
+            "carrier_name": {
+              "type": "string"
+            },
+            "bol_number": {
+              "type": "string"
+            },
+            "container_number": {
+              "type": "string"
+            },
+            "charge_type": {
+              "type": "string"
+            },
+            "charge_description": {
+              "type": "string"
+            },
+            "charge_incurred_date": {
+              "type": "string"
+            },
+            "invoice_date": {
+              "type": "string"
+            },
+            "free_time_start": {
+              "type": "string"
+            },
+            "free_time_end": {
+              "type": "string"
+            },
+            "hours_billed": {
+              "type": "number"
+            },
+            "hourly_rate_usd": {
+              "type": "number"
+            },
+            "total_amount_usd": {
+              "type": "number"
+            },
+            "billed_to_party": {
+              "type": "string"
+            }
+          }
+        },
+        "_jsonSchema": {
+          "type": "object",
+          "properties": {
+            "invoice_number": {
+              "type": "string"
+            },
+            "carrier_name": {
+              "type": "string"
+            },
+            "bol_number": {
+              "type": "string"
+            },
+            "container_number": {
+              "type": "string"
+            },
+            "charge_type": {
+              "type": "string"
+            },
+            "charge_description": {
+              "type": "string"
+            },
+            "charge_incurred_date": {
+              "type": "string"
+            },
+            "invoice_date": {
+              "type": "string"
+            },
+            "free_time_start": {
+              "type": "string"
+            },
+            "free_time_end": {
+              "type": "string"
+            },
+            "hours_billed": {
+              "type": "number"
+            },
+            "hourly_rate_usd": {
+              "type": "number"
+            },
+            "total_amount_usd": {
+              "type": "number"
+            },
+            "billed_to_party": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "id": "evidence_data",
+        "name": "evidence_data",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object"
+        },
+        "_jsonSchema": {
+          "type": "object"
+        }
+      },
+      {
+        "id": "verdict_data",
+        "name": "verdict_data",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object"
+        },
+        "_jsonSchema": {
+          "type": "object"
+        }
+      },
+      {
+        "id": "score_data",
+        "name": "score_data",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object"
+        },
+        "_jsonSchema": {
+          "type": "object"
+        }
+      },
+      {
+        "id": "letter_data",
+        "name": "letter_data",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object"
+        },
+        "_jsonSchema": {
+          "type": "object"
+        }
+      },
+      {
+        "id": "evidence_gate",
+        "name": "evidence_gate",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object",
+          "properties": {
+            "gate_in_timestamp": {
+              "type": "string"
+            },
+            "gate_out_timestamp": {
+              "type": "string"
+            },
+            "weather_events": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "terminal_records": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "filingReference",
+        "name": "filingReference",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "filingTimestamp",
+        "name": "filingTimestamp",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "hitlTask",
+        "name": "hitlTask",
+        "type": "jsonSchema",
+        "custom": true,
+        "elementId": "root",
+        "body": {
+          "type": "object"
+        }
+      },
+      {
+        "id": "action",
+        "name": "action",
+        "type": "string",
+        "custom": true,
+        "elementId": "root"
+      },
+      {
+        "id": "error",
+        "name": "Error",
+        "type": "jsonSchema",
+        "elementId": "trigger_1",
+        "body": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "category": {
+              "type": "string"
+            },
+            "status": {
+              "type": "number"
+            },
+            "element": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      {
+        "id": "response",
+        "name": "response",
+        "type": "jsonSchema",
+        "elementId": "trigger_1",
+        "body": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "ParentID": {
+              "title": "In location",
+              "type": "string"
+            },
+            "Owner": {
+              "title": "Owner",
+              "$ref": "#/definitions/Owner"
+            },
+            "ParentDriveID": {
+              "title": "Drive",
+              "type": "string"
+            },
+            "Shared": {
+              "title": "Shared",
+              "type": "boolean"
+            },
+            "URL": {
+              "title": "Url",
+              "type": "string"
+            },
+            "Extension": {
+              "title": "File extension",
+              "type": "string"
+            },
+            "Type": {
+              "title": "Type",
+              "type": "string"
+            },
+            "isFolder": {
+              "title": "Is folder",
+              "type": "boolean"
+            },
+            "MIMEType": {
+              "title": "Mime type",
+              "type": "string"
+            },
+            "FullName": {
+              "title": "Name",
+              "type": "string"
+            },
+            "ID": {
+              "title": "Id",
+              "type": "string"
+            }
+          },
+          "definitions": {
+            "Owner": {
+              "type": "object",
+              "properties": {
+                "Name": {
+                  "title": "Owner name",
+                  "type": "string"
+                },
+                "ID": {
+                  "title": "Owner ID",
+                  "type": "string"
+                },
+                "Email": {
+                  "title": "Created by(email)",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "style": {
+        "width": 96,
+        "height": 96
+      },
+      "measured": {
+        "width": 96,
+        "height": 96
+      },
+      "width": 96,
+      "height": 96,
+      "position": {
+        "x": 160,
+        "y": 208
+      },
+      "id": "trigger_1",
+      "type": "case-management:Trigger",
+      "data": {
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "label": "Start Manually",
+        "description": "Operator starts a new dispute case (one disputed freight invoice) from the Case App.",
+        "uipath": {
+          "serviceType": "Intsvc.EventTrigger",
+          "context": [
+            {
+              "name": "connectorKey",
+              "value": "uipath-google-drive",
+              "type": "string"
+            },
+            {
+              "name": "connection",
+              "value": "=bindings.bxIpP8Euq",
+              "type": "string"
+            },
+            {
+              "name": "resourceKey",
+              "value": "15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+              "type": "string"
+            },
+            {
+              "name": "folderKey",
+              "value": "=bindings.bEkmm29Th",
+              "type": "string"
+            },
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "path",
+              "type": "string"
+            },
+            {
+              "name": "objectName",
+              "value": "File",
+              "type": "string"
+            },
+            {
+              "name": "operation",
+              "value": "FILE_CREATED",
+              "type": "string"
+            },
+            {
+              "name": "metadata",
+              "body": {
+                "activityPropertyConfiguration": {
+                  "objectName": "File",
+                  "eventType": "FILE_CREATED",
+                  "eventMode": "polling",
+                  "filterExpression": "(ParentID == '1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r')",
+                  "configuration": "=jsonString:{\"essentialConfiguration\":{\"connectorVersion\":\"1.13.10\",\"executionType\":null,\"customFieldsRequestDetails\":null,\"instanceParameters\":{\"connectorKey\":\"uipath-google-drive\",\"objectName\":\"File\",\"activityType\":\"CuratedTrigger\",\"version\":\"1.0.0\",\"eventOperation\":\"FILE_CREATED\",\"eventMode\":\"polling\",\"supportsStreaming\":false},\"objectName\":\"File\",\"packageVersion\":\"1.0.0\",\"httpMethod\":null,\"path\":null,\"filter\":null},\"optionalConfiguration\":{\"_textBlocks\":[{\"name\":\"defaultMessage\",\"text\":\"Events are notified only for the selected drive. Personal(My Drive) and shared drives are monitored separately.\",\"position\":\"top\"}],\"objectActions\":null,\"connectorName\":\"Google Drive\",\"maxPageSize\":null,\"jobArguments\":null,\"isAutopilotInvalidConfig\":false,\"additionalHeaders\":null,\"cachedLookupValues\":[[\"ParentDriveID\",[{\"id\":\"0AJqLzq348nCQUk9PVA\",\"displayColumns\":[\"My Drive\"],\"stringFormatDisplayColumns\":\"\"}]]],\"cachedBrowserItems\":[[\"ParentDriveID\",{\"mimeType\":null,\"iconUri\":null,\"fullName\":\"My Drive\",\"isFolder\":true,\"metadata\":[[\"isFolder\",\"true\"],[\"Selectable\",\"true\"],[\"FullName\",\"My Drive\"],[\"Kind\",\"drive#drive\"],[\"ParentDriveID\",\"0AJqLzq348nCQUk9PVA\"],[\"ID\",\"0AJqLzq348nCQUk9PVA\"],[\"URL\",\"https://drive.google.com/drive/folders/0AJqLzq348nCQUk9PVA\"]],\"id\":\"0AJqLzq348nCQUk9PVA\"}],[\"ParentID\",{\"mimeType\":null,\"iconUri\":null,\"fullName\":\"DisputeOps\",\"isFolder\":true,\"metadata\":[[\"ParentID\",\"0AJqLzq348nCQUk9PVA\"],[\"Owner\",\"[object Object]\"],[\"Type\",\"folder\"],[\"isFolder\",\"true\"],[\"FullName\",\"DisputeOps\"],[\"ParentDriveID\",\"0AJqLzq348nCQUk9PVA\"],[\"ID\",\"1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r\"],[\"Shared\",\"false\"],[\"URL\",\"https://drive.google.com/drive/folders/1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r\"]],\"id\":\"1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r\"}]],\"cachedPropertyMappings\":[],\"primaryKeys\":[],\"objectDisplayName\":\"File Event Field\",\"baseObject\":null,\"eventMode\":[\"polling\"],\"eventOperation\":null,\"language\":\"15e10e06-63b5-48d6-a94a-1e0b1daf52d1\",\"hasBreakingChanges\":false,\"debugDisabled\":false,\"hasStaticLeftOperandFilterBuilder\":false,\"isV2TriggerBaseUrl\":false,\"fieldsContainer\":{\"outputTypeDefinition\":\"{\\\"Extension\\\":string;\\\"FullName\\\":string;\\\"ID\\\":string;\\\"MIMEType\\\":string;\\\"Owner\\\":{\\\"Email\\\":string;\\\"ID\\\":string;\\\"Name\\\":string};\\\"ParentDriveID\\\":string;\\\"ParentID\\\":string;\\\"Shared\\\":boolean;\\\"Type\\\":string;\\\"URL\\\":string;\\\"isFolder\\\":boolean}\",\"outputJsonSchema\":{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"type\":\"object\",\"properties\":{\"ParentID\":{\"title\":\"In location\",\"type\":\"string\"},\"Owner\":{\"title\":\"Owner\",\"$ref\":\"#/definitions/Owner\"},\"ParentDriveID\":{\"title\":\"Drive\",\"type\":\"string\"},\"Shared\":{\"title\":\"Shared\",\"type\":\"boolean\"},\"URL\":{\"title\":\"Url\",\"type\":\"string\"},\"Extension\":{\"title\":\"File extension\",\"type\":\"string\"},\"Type\":{\"title\":\"Type\",\"type\":\"string\"},\"isFolder\":{\"title\":\"Is folder\",\"type\":\"boolean\"},\"MIMEType\":{\"title\":\"Mime type\",\"type\":\"string\"},\"FullName\":{\"title\":\"Name\",\"type\":\"string\"},\"ID\":{\"title\":\"Id\",\"type\":\"string\"}},\"definitions\":{\"Owner\":{\"type\":\"object\",\"properties\":{\"Name\":{\"title\":\"Owner name\",\"type\":\"string\"},\"ID\":{\"title\":\"Owner ID\",\"type\":\"string\"},\"Email\":{\"title\":\"Created by(email)\",\"type\":\"string\"}}}}},\"hasFileOutput\":false,\"populateOutputFields\":true,\"inputFields\":[{\"typeScriptDefinition\":null,\"id\":\"ParentDriveID\",\"name\":\"ParentDriveID\",\"displayName\":\"Drive\",\"description\":\"ID of the drive to poll.\",\"type\":\"string\",\"defaultValue\":\"me\",\"primaryKey\":false,\"lookup\":{\"lookupNames\":[\"FullName\"],\"childPath\":\"/EventDrivePicker?parentReference={ParentDriveID}\",\"path\":\"/EventDrivePicker\",\"hydration\":{\"method\":\"GETBYID\",\"url\":\"/EventDrivePicker/{ParentDriveID}\"},\"objectName\":\"EventDrivePicker\",\"lookupValue\":\"ParentDriveID\"},\"design\":{\"component\":\"FolderPicker\"},\"fieldActions\":[],\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"path\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":true,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":true,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null},{\"typeScriptDefinition\":null,\"id\":\"ParentID\",\"name\":\"ParentID\",\"displayName\":\"In location\",\"description\":\"In location\",\"type\":\"string\",\"primaryKey\":false,\"lookup\":{\"objectName\":\"EventFolderPicker\",\"lookupNames\":[\"FullName\"],\"lookupValue\":\"ID\",\"path\":\"/EventFolderPicker\",\"childPath\":\"/EventFolderPicker?parentReference={ID}\",\"hydration\":{\"url\":\"/CuratedFileAndFolders/{ID}\",\"method\":\"GETBYID\"}},\"design\":{\"displayName\":\"In location\",\"description\":\"In location\",\"component\":\"FolderPicker\",\"textBlocks\":null,\"dictionaryWidget\":null,\"selection\":null,\"solutionResourceKind\":null,\"solutionResourceSubTypes\":null,\"exposeAsSubBinding\":null},\"fieldActions\":[],\"searchable\":false,\"searchableJoins\":null,\"required\":true,\"request\":true,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"none\",\"onCanvas\":null,\"isJitField\":false,\"isFieldActionParent\":false,\"isMainResponseField\":false,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":true,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null,\"sampleValue\":null}],\"outputFields\":[{\"typeScriptDefinition\":null,\"id\":\"File Event Field\",\"name\":\"File Event Field\",\"displayName\":\"File Event Field\",\"description\":\"\",\"type\":\"GeneratedFileEventField_Trigger\",\"sortOrder\":null,\"format\":null,\"mask\":null,\"defaultValue\":null,\"primaryKey\":false,\"lookup\":null,\"enum\":null,\"design\":null,\"fieldActions\":null,\"searchable\":false,\"searchableOperators\":null,\"searchableNames\":null,\"searchableJoins\":null,\"required\":false,\"request\":false,\"response\":false,\"responseCurated\":false,\"fieldLocation\":\"output\",\"onCanvas\":null,\"isJitField\":true,\"isFieldActionParent\":false,\"isMainResponseField\":true,\"isMethodParameter\":false,\"isBackgroundField\":false,\"filterTree\":null,\"filterNeedsRefresh\":null,\"arrayInputPaths\":null,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"Object\",\"assemblyQualifiedName\":\"Object\",\"isValueType\":false},\"forceExpressionEditor\":false,\"requiredGroups\":null,\"disableExpressions\":false,\"backingField\":null,\"searchableDisplayName\":null,\"selectedResourceId\":null}],\"jitTypeNeedsRefresh\":false,\"eventFields\":[{\"name\":\"Owner.Email\",\"displayName\":\"Created by(email)\",\"type\":\"string\",\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}},{\"name\":\"ParentDriveID\",\"displayName\":\"Drive\",\"type\":\"string\",\"reference\":{\"objectName\":\"EventDrivePicker\",\"lookupNames\":[\"FullName\"],\"lookupValue\":\"ID\",\"path\":\"/EventDrivePicker\",\"childPath\":\"/EventDrivePicker?parentReference={ID}\",\"hydration\":{\"url\":\"/EventDrivePicker/{ID}\",\"method\":\"GETBYID\"}},\"design\":{\"component\":\"FolderPicker\"},\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}},{\"name\":\"Extension\",\"displayName\":\"File extension\",\"type\":\"string\",\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}},{\"name\":\"ID\",\"displayName\":\"ID\",\"type\":\"string\",\"reference\":{\"objectName\":\"EventFolderPicker\",\"lookupNames\":[\"FullName\"],\"lookupValue\":\"ID\",\"path\":\"/EventFolderPicker\",\"childPath\":\"/EventFolderPicker?parentReference={ID}\",\"hydration\":{\"url\":\"/CuratedFileAndFolders/{ID}\",\"method\":\"GETBYID\"}},\"design\":{\"component\":\"FolderPicker\"},\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}},{\"name\":\"FullName\",\"displayName\":\"Name\",\"type\":\"string\",\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}},{\"name\":\"URL\",\"displayName\":\"URL\",\"type\":\"string\",\"sampleValue\":null,\"isCuratedEventField\":true,\"nativeType\":\"string\",\"order\":1,\"clrType\":{\"_elementType\":null,\"_isNullable\":false,\"isArray\":false,\"genericTypeArguments\":[],\"fullName\":null,\"name\":\"String\",\"assemblyQualifiedName\":\"String\",\"isValueType\":true}}]},\"filterNeedsRefresh\":false,\"filterExpression\":null,\"obsoleteEventFields\":false,\"filterWidget\":null}}",
+                  "uiPathActivityTypeId": "922d2ad5-d5b5-3211-963e-0a155ea22780",
+                  "errorState": {
+                    "issues": []
+                  }
+                },
+                "activityMetadata": {
+                  "activity": {
+                    "type": "Integrated",
+                    "packageId": 72511,
+                    "svgIconUrl": "icons/83eb8b9e758658497ff3af9a4baf662b83c46a96380638c5503bdfb9ee2c3c33.svg",
+                    "displayName": "File Created",
+                    "assemblyQualifiedName": "UiPath.IntegrationService.Activities.Runtime.Activities.ConnectorTriggerActivity, UiPath.IntegrationService.Activities.Runtime, Version=1.27.0.0, Culture=neutral, PublicKeyToken=null",
+                    "description": "Triggers when a new file is created in the drive.",
+                    "category": "Google Drive.Triggers",
+                    "activityColor": "#E56D5C",
+                    "configuration": "{\"connectorKey\":\"uipath-google-drive\",\"objectName\":\"File\",\"activityType\":\"CuratedTrigger\",\"version\":\"1.0.0\",\"eventOperation\":\"FILE_CREATED\",\"eventMode\":\"polling\",\"supportsStreaming\":false}",
+                    "uiPathActivityTypeId": "922d2ad5-d5b5-3211-963e-0a155ea22780",
+                    "isExperimental": false,
+                    "helpUrlTemplate": "https://docs.uipath.com/{0}/activities/other/latest/integration-service/uipath-google-drive-File-Created",
+                    "isEnabled": true,
+                    "targetPlatform": "CrossPlatform",
+                    "isAdvanced": false,
+                    "isRestricted": false,
+                    "tags": [
+                      "Trigger.Integrated"
+                    ]
+                  },
+                  "meta": {
+                    "packageName": "UiPath.IntegrationService.Activities",
+                    "packageVersion": "1.27.0-beta.20260616.2",
+                    "activityColor": "#E56D5C",
+                    "packageCategoryDisplayName": "Google Drive"
+                  }
+                },
+                "inputMetadata": {
+                  "triggerPathParameters": {
+                    "ParentDriveID": "0AJqLzq348nCQUk9PVA"
+                  }
+                },
+                "telemetryData": {
+                  "connectorKey": "uipath-google-drive",
+                  "connectorName": "Google Drive",
+                  "objectName": "File",
+                  "objectDisplayName": "File Event Field",
+                  "primaryKeyName": ""
+                },
+                "bindings": [
+                  {
+                    "resource": "Property",
+                    "key": "FILE_CREATED",
+                    "value": {
+                      "ParentDriveID": {
+                        "defaultValue": "0AJqLzq348nCQUk9PVA",
+                        "isExpression": false
+                      }
+                    },
+                    "activityDisplayName": "Connector",
+                    "metadata": {
+                      "ActivityName": "Connector",
+                      "BindingsVersion": "2.2",
+                      "ObjectName": "File",
+                      "ParentResourceKey": "EventTrigger.15e10e06-63b5-48d6-a94a-1e0b1daf52d1",
+                      "TriggerCreateParameters": "ParentDriveID",
+                      "DebugQueryParameters": "ParentDriveID"
+                    }
+                  }
+                ]
+              },
+              "type": "json"
+            },
+            {
+              "name": "activityConfigurationVersion",
+              "value": "v2",
+              "type": "string"
+            }
+          ],
+          "inputs": [
+            {
+              "name": "body",
+              "type": "json",
+              "target": "body",
+              "body": {
+                "filters": {
+                  "expression": "(ParentID == '1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r')"
+                },
+                "queryParams": {
+                  "ParentID": "1DxONzNoilL1M1FqO0NsQ7feSfV_m-m9r"
+                },
+                "parameters": {
+                  "ParentDriveID": "0AJqLzq348nCQUk9PVA"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "name": "response",
+              "displayName": "File Created",
+              "type": "jsonSchema",
+              "source": "=response",
+              "var": "response",
+              "value": "response",
+              "_jsonSchema": null
+            },
+            {
+              "name": "Error",
+              "displayName": "Error",
+              "type": "jsonSchema",
+              "source": "=Error",
+              "_jsonSchema": null,
+              "var": "error",
+              "value": "error"
+            }
+          ],
+          "bindings": []
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false
+      }
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 304
+      },
+      "width": 304,
+      "position": {
+        "x": 320,
+        "y": 224
+      },
+      "id": "Stage_In7kp2",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Intake",
+        "description": "Read and classify the incoming freight invoice.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "t7Rn4Wq8",
+              "type": "agent",
+              "displayName": "ChargeTagger",
+              "elementId": "Stage_In7kp2-t7Rn4Wq8",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bC4tg7Nm2",
+                "folderPath": "=bindings.bC8fp3Wk5",
+                "inputs": [
+                  {
+                    "name": "charge_description",
+                    "displayName": "charge_description",
+                    "type": "string",
+                    "value": "=vars.invoice_data.charge_description",
+                    "var": "v8K3WhZcb",
+                    "id": "v8K3WhZcb",
+                    "elementId": "Stage_In7kp2-t7Rn4Wq8"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "charge_type",
+                    "displayName": "charge_type",
+                    "type": "string",
+                    "id": "chargeType",
+                    "var": "charge_type",
+                    "originalVar": "chargeType",
+                    "source": "=charge_type",
+                    "target": "=chargeType",
+                    "value": "=charge_type",
+                    "elementId": "root",
+                    "custom": true
+                  },
+                  {
+                    "name": "case_id",
+                    "displayName": "case_id",
+                    "custom": true,
+                    "var": "case_id",
+                    "value": "=js:(vars.invoice_data.invoice_number)",
+                    "source": "=js:(vars.invoice_data.invoice_number)",
+                    "target": "",
+                    "body": "",
+                    "type": "string",
+                    "elementId": "root"
+                  },
+                  {
+                    "name": "container_number",
+                    "displayName": "container_number",
+                    "custom": true,
+                    "var": "container_number",
+                    "value": "=js:(vars.invoice_data.container_number)",
+                    "source": "=js:(vars.invoice_data.container_number)",
+                    "target": "",
+                    "body": "",
+                    "type": "string",
+                    "elementId": "root"
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cCt4k8x2",
+                  "displayName": "After InvoiceLens",
+                  "rules": [
+                    [
+                      {
+                        "id": "rCt9m3v7",
+                        "rule": "selected-tasks-completed",
+                        "selectedTasksIds": [
+                          "tZWDgr5EI"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "tZWDgr5EI",
+              "isRequired": true,
+              "shouldRunOnlyOnce": false,
+              "data": {
+                "name": "=bindings.buYl1WqBl",
+                "folderPath": "=bindings.boSjTpejO",
+                "inputs": [
+                  {
+                    "name": "in_FileID",
+                    "displayName": "in_FileID",
+                    "value": "=vars.response.ID",
+                    "type": "string",
+                    "required": false,
+                    "id": "vI7laWG9Z",
+                    "var": "vI7laWG9Z",
+                    "elementId": "Stage_In7kp2-tZWDgr5EI"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "Error",
+                    "displayName": "Error",
+                    "value": "error2",
+                    "type": "jsonSchema",
+                    "source": "=Error",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "id": "error2",
+                    "var": "error2",
+                    "elementId": "Stage_In7kp2-tZWDgr5EI",
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "out_InvoiceData",
+                    "displayName": "out_InvoiceData",
+                    "value": "=out_InvoiceData",
+                    "type": "jsonSchema",
+                    "source": "=out_InvoiceData",
+                    "id": "outInvoiceData",
+                    "var": "invoice_data",
+                    "elementId": "Stage_In7kp2-tZWDgr5EI",
+                    "originalVar": "outInvoiceData",
+                    "target": "=outInvoiceData",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "invoice_number": {
+                          "type": "string"
+                        },
+                        "carrier_name": {
+                          "type": "string"
+                        },
+                        "bol_number": {
+                          "type": "string"
+                        },
+                        "container_number": {
+                          "type": "string"
+                        },
+                        "charge_type": {
+                          "type": "string"
+                        },
+                        "charge_description": {
+                          "type": "string"
+                        },
+                        "charge_incurred_date": {
+                          "type": "string"
+                        },
+                        "invoice_date": {
+                          "type": "string"
+                        },
+                        "free_time_start": {
+                          "type": "string"
+                        },
+                        "free_time_end": {
+                          "type": "string"
+                        },
+                        "hours_billed": {
+                          "type": "number"
+                        },
+                        "hourly_rate_usd": {
+                          "type": "number"
+                        },
+                        "total_amount_usd": {
+                          "type": "number"
+                        },
+                        "billed_to_party": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "body": "",
+                    "custom": false
+                  },
+                  {
+                    "name": "total_amount_usd",
+                    "displayName": "total_amount_usd",
+                    "type": "number",
+                    "id": "vTa7mX2nQ",
+                    "var": "total_amount_usd",
+                    "originalVar": "vTa7mX2nQ",
+                    "source": "=total_amount_usd",
+                    "target": "=total_amount_usd",
+                    "value": "=total_amount_usd",
+                    "elementId": "Stage_In7kp2-tZWDgr5EI",
+                    "custom": false,
+                    "body": ""
+                  }
+                ]
+              },
+              "type": "rpa",
+              "elementId": "Stage_In7kp2-tZWDgr5EI",
+              "entryConditions": [
+                {
+                  "id": "cnWzlZtWs",
+                  "displayName": "Entry rule 1",
+                  "rules": [
+                    [
+                      {
+                        "id": "rnHTD98Ch",
+                        "rule": "runs-sequentially"
+                      }
+                    ]
+                  ]
+                }
+              ],
+              "displayName": "InvoiceLens"
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_Ie3k7m",
+            "displayName": "Case started",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ie8n2p",
+                  "rule": "case-entered"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_Ik42xz",
+            "displayName": "Intake complete",
+            "type": "exit-only",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ik9q2v",
+                  "rule": "required-tasks-completed"
+                }
+              ]
+            ]
+          }
+        ]
+      },
+      "zIndex": 0
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 256
+      },
+      "width": 304,
+      "position": {
+        "x": 688,
+        "y": 224
+      },
+      "id": "Stage_Ev3mq8",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Evidence",
+        "description": "Gather supporting proof for the dispute.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "t5Hb2Tz6",
+              "type": "rpa",
+              "displayName": "GateHarvester",
+              "elementId": "Stage_Ev3mq8-t5Hb2Tz6",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bZGaUyYY3",
+                "folderPath": "=bindings.bs13g1SOI",
+                "inputs": [
+                  {
+                    "name": "in_case_id",
+                    "type": "string",
+                    "id": "vpZiZ5Zsh",
+                    "var": "in_case_id",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6",
+                    "value": "=vars.case_id"
+                  },
+                  {
+                    "name": "in_container_number",
+                    "type": "string",
+                    "id": "vZtQr0G4n",
+                    "var": "in_container_number",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6",
+                    "value": "=vars.container_number"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "gate_in_timestamp",
+                    "displayName": "gate_in_timestamp",
+                    "id": "gateInTimestamp",
+                    "var": "gateInTimestamp",
+                    "originalVar": "gateInTimestamp",
+                    "value": "gateInTimestamp",
+                    "source": "=out_gate_in_timestamp",
+                    "target": "=gateInTimestamp",
+                    "type": "string",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6"
+                  },
+                  {
+                    "name": "gate_out_timestamp",
+                    "displayName": "gate_out_timestamp",
+                    "id": "gateOutTimestamp",
+                    "var": "gateOutTimestamp",
+                    "originalVar": "gateOutTimestamp",
+                    "value": "gateOutTimestamp",
+                    "source": "=out_gate_out_timestamp",
+                    "target": "=gateOutTimestamp",
+                    "type": "string",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6"
+                  },
+                  {
+                    "name": "weather_events",
+                    "displayName": "weather_events",
+                    "id": "weatherEvents",
+                    "var": "weatherEvents",
+                    "originalVar": "weatherEvents",
+                    "value": "weatherEvents",
+                    "source": "=out_weather_events",
+                    "target": "=weatherEvents",
+                    "type": "jsonSchema",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6"
+                  },
+                  {
+                    "name": "terminal_records",
+                    "displayName": "terminal_records",
+                    "id": "terminalRecords",
+                    "var": "terminalRecords",
+                    "originalVar": "terminalRecords",
+                    "value": "terminalRecords",
+                    "source": "=out_terminal_records",
+                    "target": "=terminalRecords",
+                    "type": "jsonSchema",
+                    "elementId": "Stage_Ev3mq8-t5Hb2Tz6"
+                  },
+                  {
+                    "name": "evidence_gate",
+                    "displayName": "evidence_gate",
+                    "custom": true,
+                    "var": "evidence_gate",
+                    "value": "=js:({ \"gate_in_timestamp\": vars.gateInTimestamp, \"gate_out_timestamp\": vars.gateOutTimestamp, \"weather_events\": vars.weatherEvents, \"terminal_records\": vars.terminalRecords })",
+                    "source": "=js:({ \"gate_in_timestamp\": vars.gateInTimestamp, \"gate_out_timestamp\": vars.gateOutTimestamp, \"weather_events\": vars.weatherEvents, \"terminal_records\": vars.terminalRecords })",
+                    "target": "",
+                    "body": "",
+                    "type": "jsonSchema",
+                    "elementId": "root"
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cGh5m9w2",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "rGh8k4n6",
+                        "rule": "current-stage-entered"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "t9Jv6Nx3",
+              "type": "api-workflow",
+              "displayName": "CarrierBridge",
+              "elementId": "Stage_Ev3mq8-t9Jv6Nx3",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bOh1OCO7i",
+                "folderPath": "=bindings.bVMEPNa7p",
+                "inputs": [
+                  {
+                    "name": "in_case_id",
+                    "type": "string",
+                    "id": "vzBXVx0FU",
+                    "var": "in_case_id",
+                    "elementId": "Stage_Ev3mq8-t9Jv6Nx3",
+                    "value": "=vars.invoice_data.invoice_number"
+                  },
+                  {
+                    "name": "in_container_number",
+                    "type": "string",
+                    "id": "vMiaeW8V9",
+                    "var": "in_container_number",
+                    "elementId": "Stage_Ev3mq8-t9Jv6Nx3",
+                    "value": "=vars.invoice_data.container_number"
+                  },
+                  {
+                    "name": "in_evidence_gate",
+                    "type": "jsonSchema",
+                    "id": "vV5VjQcBr",
+                    "var": "in_evidence_gate",
+                    "elementId": "Stage_Ev3mq8-t9Jv6Nx3",
+                    "value": "=vars.evidence_gate"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "out_evidence_data",
+                    "type": "jsonSchema",
+                    "id": "outEvidenceData",
+                    "var": "evidence_data",
+                    "value": "=out_evidence_data",
+                    "source": "=out_evidence_data",
+                    "target": "=evidence_data",
+                    "elementId": "Stage_Ev3mq8-t9Jv6Nx3",
+                    "originalVar": "outEvidenceData",
+                    "custom": false,
+                    "body": ""
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cCb7n2k5",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "rCb4x8q3",
+                        "rule": "selected-tasks-completed",
+                        "selectedTasksIds": [
+                          "t5Hb2Tz6"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_Ve4m9q",
+            "displayName": "After Intake",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ve7k3n",
+                  "rule": "selected-stage-completed",
+                  "selectedStageId": "Stage_In7kp2"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_Ev7m3p",
+            "displayName": "Evidence complete",
+            "type": "exit-only",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ev5n8k",
+                  "rule": "required-tasks-completed"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 304
+      },
+      "width": 304,
+      "position": {
+        "x": 1056,
+        "y": 224
+      },
+      "id": "Stage_An5xt4",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Analysis",
+        "description": "Core agentic reasoning \u2014 three coded agents run in sequence; stage exits on recommended_action.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "t2Lq8Md5",
+              "type": "agent",
+              "displayName": "ComplianceAuditor",
+              "elementId": "Stage_An5xt4-t2Lq8Md5",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bK7m2Qp9",
+                "folderPath": "=bindings.bH4n8Wt3",
+                "inputs": [
+                  {
+                    "name": "case",
+                    "displayName": "case",
+                    "value": "=js:({ case_id: vars.case_id, invoice: { invoice_number: vars.invoice_data.invoice_number, carrier_name: vars.invoice_data.carrier_name, bol_number: vars.invoice_data.bol_number, container_number: vars.invoice_data.container_number, charge_type: (vars.charge_type || 'other'), charge_incurred_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.charge_incurred_date), invoice_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.invoice_date), hours_billed: vars.invoice_data.hours_billed, hourly_rate_usd: vars.invoice_data.hourly_rate_usd, total_amount_usd: vars.invoice_data.total_amount_usd, billed_to_party: vars.invoice_data.billed_to_party }, evidence: vars.evidence_data ?? {} })",
+                    "description": "The structured detention/demurrage dispute case to audit.",
+                    "additionalProperties": false,
+                    "properties": {
+                      "case_id": {
+                        "description": "Globally unique case ID",
+                        "minLength": 1,
+                        "title": "Case Id",
+                        "type": "string"
+                      },
+                      "invoice": {
+                        "additionalProperties": false,
+                        "description": "The carrier's detention or demurrage invoice.",
+                        "properties": {
+                          "invoice_number": {
+                            "title": "Invoice Number",
+                            "type": "string"
+                          },
+                          "carrier_name": {
+                            "title": "Carrier Name",
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "bol_number": {
+                            "type": "string"
+                          },
+                          "container_number": {
+                            "type": "string"
+                          },
+                          "charge_type": {
+                            "title": "Charge Type",
+                            "type": "string",
+                            "enum": [
+                              "detention",
+                              "demurrage",
+                              "tonu",
+                              "layover",
+                              "lumper",
+                              "other"
+                            ]
+                          },
+                          "charge_incurred_date": {
+                            "format": "date",
+                            "title": "Charge Incurred Date",
+                            "type": "string"
+                          },
+                          "invoice_date": {
+                            "format": "date",
+                            "title": "Invoice Date",
+                            "type": "string"
+                          },
+                          "free_time_start": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "free_time_end": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "hours_billed": {
+                            "title": "Hours Billed",
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "hourly_rate_usd": {
+                            "title": "Hourly Rate Usd",
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "total_amount_usd": {
+                            "title": "Total Amount Usd",
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "billed_to_party": {
+                            "title": "Billed To Party",
+                            "type": "string"
+                          },
+                          "basis_for_charge": {
+                            "type": "string"
+                          }
+                        },
+                        "title": "Invoice",
+                        "type": "object"
+                      },
+                      "evidence": {
+                        "additionalProperties": false,
+                        "description": "All evidence collected by Stage 2 (evidence gathering agent).",
+                        "properties": {
+                          "gate_in_timestamp": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "gate_out_timestamp": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "appointment_time": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "pod_signed_at": {
+                            "format": "date-time",
+                            "type": "string"
+                          },
+                          "terminal_records": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "record_id": {
+                                  "title": "Record Id",
+                                  "type": "string"
+                                },
+                                "event_type": {
+                                  "title": "Event Type",
+                                  "type": "string",
+                                  "enum": [
+                                    "gate_in",
+                                    "gate_out",
+                                    "chassis_return",
+                                    "container_available",
+                                    "vessel_discharge",
+                                    "appointment_scheduled",
+                                    "appointment_cancelled",
+                                    "terminal_closure",
+                                    "other"
+                                  ]
+                                },
+                                "event_timestamp": {
+                                  "format": "date-time",
+                                  "title": "Event Timestamp",
+                                  "type": "string"
+                                },
+                                "container_number": {
+                                  "title": "Container Number",
+                                  "type": "string"
+                                },
+                                "source": {
+                                  "title": "Source",
+                                  "type": "string"
+                                },
+                                "notes": {
+                                  "type": "string"
+                                }
+                              },
+                              "title": "TerminalRecord",
+                              "type": "object"
+                            },
+                            "title": "Terminal Records",
+                            "type": "array"
+                          },
+                          "weather_events": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "Weather Events",
+                            "type": "array"
+                          },
+                          "bol_terms": {
+                            "type": "string"
+                          },
+                          "carrier_tariff_reference": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "tariff_number": {
+                                "title": "Tariff Number",
+                                "type": "string"
+                              },
+                              "effective_date": {
+                                "anyOf": [
+                                  {
+                                    "format": "date",
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ],
+                                "default": null,
+                                "title": "Effective Date"
+                              },
+                              "fmc_filing_url": {
+                                "anyOf": [
+                                  {
+                                    "format": "uri",
+                                    "maxLength": 2083,
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ],
+                                "default": null,
+                                "title": "Fmc Filing Url"
+                              },
+                              "published_free_time_hours": {
+                                "anyOf": [
+                                  {
+                                    "minimum": 0,
+                                    "type": "number"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ],
+                                "default": null,
+                                "title": "Published Free Time Hours"
+                              }
+                            },
+                            "title": "TariffReference",
+                            "type": "object"
+                          },
+                          "published_free_time_days": {
+                            "minimum": 0,
+                            "type": "number"
+                          },
+                          "dispute_notice_date": {
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "shipper_name": {
+                            "type": "string"
+                          }
+                        },
+                        "title": "EvidencePackage",
+                        "type": "object"
+                      },
+                      "created_at": {
+                        "description": "UTC timestamp when the case was created",
+                        "format": "date-time",
+                        "title": "Created At",
+                        "type": "string"
+                      }
+                    },
+                    "title": "DisputeCase",
+                    "type": "object",
+                    "required": false,
+                    "id": "v66zbtLf7",
+                    "var": "v66zbtLf7",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "Error",
+                    "displayName": "Error",
+                    "value": "error3",
+                    "type": "jsonSchema",
+                    "source": "=Error",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "id": "error3",
+                    "var": "error3",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "body": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "name": "case_id",
+                    "displayName": "case_id",
+                    "value": "caseId2",
+                    "description": "Case ID echoed from DisputeCase",
+                    "title": "Case Id",
+                    "type": "string",
+                    "source": "=case_id",
+                    "id": "caseId2",
+                    "var": "caseId2",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5"
+                  },
+                  {
+                    "name": "total_rules_evaluated",
+                    "displayName": "total_rules_evaluated",
+                    "value": "totalRulesEvaluated",
+                    "description": "Count of rules with a definitive True/False result",
+                    "minimum": 0,
+                    "title": "Total Rules Evaluated",
+                    "type": "integer",
+                    "source": "=total_rules_evaluated",
+                    "id": "totalRulesEvaluated",
+                    "var": "totalRulesEvaluated",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5"
+                  },
+                  {
+                    "name": "violations",
+                    "displayName": "violations",
+                    "value": "=violations",
+                    "type": "jsonSchema",
+                    "_jsonSchema": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "rule_id": {
+                            "pattern": "^R\\d{3}$",
+                            "title": "Rule Id",
+                            "type": "string"
+                          },
+                          "rule_name": {
+                            "title": "Rule Name",
+                            "type": "string"
+                          },
+                          "confidence": {
+                            "maximum": 1,
+                            "minimum": 0,
+                            "title": "Confidence",
+                            "type": "number"
+                          },
+                          "evidence_refs": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "title": "Evidence Refs",
+                            "type": "array"
+                          },
+                          "reasoning": {
+                            "title": "Reasoning",
+                            "type": "string"
+                          },
+                          "citation": {
+                            "title": "Citation",
+                            "type": "string"
+                          }
+                        },
+                        "title": "Violation",
+                        "type": "object"
+                      },
+                      "title": "Violations",
+                      "type": "array",
+                      "$schema": "http://json-schema.org/draft-07/schema#"
+                    },
+                    "subType": "object",
+                    "source": "=violations",
+                    "id": "violations",
+                    "var": "violations",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "body": "",
+                    "custom": false,
+                    "target": ""
+                  },
+                  {
+                    "name": "cannot_evaluate",
+                    "displayName": "cannot_evaluate",
+                    "value": "=cannot_evaluate",
+                    "type": "jsonSchema",
+                    "_jsonSchema": {
+                      "items": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "rule_id": {
+                            "pattern": "^R\\d{3}$",
+                            "title": "Rule Id",
+                            "type": "string"
+                          },
+                          "rule_name": {
+                            "title": "Rule Name",
+                            "type": "string"
+                          },
+                          "missing_evidence": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "field_path": {
+                                  "title": "Field Path",
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "title": "Description",
+                                  "type": "string"
+                                },
+                                "can_be_fetched_from": {
+                                  "items": {
+                                    "enum": [
+                                      "tms",
+                                      "carrier_portal",
+                                      "driver_log",
+                                      "terminal_portal",
+                                      "email",
+                                      "manual",
+                                      "external_weather_api"
+                                    ],
+                                    "type": "string"
+                                  },
+                                  "type": "array"
+                                }
+                              },
+                              "title": "MissingEvidenceItem",
+                              "type": "object"
+                            },
+                            "minItems": 1,
+                            "title": "Missing Evidence",
+                            "type": "array"
+                          },
+                          "reasoning": {
+                            "title": "Reasoning",
+                            "type": "string"
+                          },
+                          "citation": {
+                            "title": "Citation",
+                            "type": "string"
+                          }
+                        },
+                        "title": "CannotEvaluate",
+                        "type": "object"
+                      },
+                      "title": "Cannot Evaluate",
+                      "type": "array",
+                      "$schema": "http://json-schema.org/draft-07/schema#"
+                    },
+                    "subType": "object",
+                    "source": "=cannot_evaluate",
+                    "id": "cannot_evaluate",
+                    "var": "cannot_evaluate",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "body": "",
+                    "custom": false,
+                    "target": ""
+                  },
+                  {
+                    "name": "clean_results",
+                    "displayName": "clean_results",
+                    "value": "=clean_results",
+                    "type": "jsonSchema",
+                    "_jsonSchema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "title": "Clean Results",
+                      "type": "array",
+                      "$schema": "http://json-schema.org/draft-07/schema#"
+                    },
+                    "subType": "string",
+                    "source": "=clean_results",
+                    "id": "clean_results",
+                    "var": "clean_results",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "body": "",
+                    "custom": false,
+                    "target": ""
+                  },
+                  {
+                    "name": "overall_strength",
+                    "displayName": "overall_strength",
+                    "value": "=overall_strength",
+                    "enum": [
+                      "strong",
+                      "moderate",
+                      "weak",
+                      "no_merit"
+                    ],
+                    "title": "Overall Strength",
+                    "type": "string",
+                    "source": "=overall_strength",
+                    "id": "overall_strength",
+                    "var": "overall_strength",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "custom": false,
+                    "target": "",
+                    "body": ""
+                  },
+                  {
+                    "name": "summary",
+                    "displayName": "summary",
+                    "value": "=summary",
+                    "title": "Summary",
+                    "type": "string",
+                    "source": "=summary",
+                    "id": "summary",
+                    "var": "summary",
+                    "elementId": "Stage_An5xt4-t2Lq8Md5",
+                    "custom": false,
+                    "target": "",
+                    "body": ""
+                  },
+                  {
+                    "name": "verdict_blob",
+                    "displayName": "verdict_blob",
+                    "custom": true,
+                    "var": "verdict_blob",
+                    "value": "=js:({ case_id: vars.case_id, total_rules_evaluated: ((vars.violations?.length || 0) + (vars.clean_results?.length || 0)), violations: (vars.violations || []), cannot_evaluate: (vars.cannot_evaluate || []), clean_results: (vars.clean_results || []), overall_strength: (vars.overall_strength || 'no_merit'), summary: (vars.summary || '') })",
+                    "source": "=js:({ case_id: vars.case_id, total_rules_evaluated: ((vars.violations?.length || 0) + (vars.clean_results?.length || 0)), violations: (vars.violations || []), cannot_evaluate: (vars.cannot_evaluate || []), clean_results: (vars.clean_results || []), overall_strength: (vars.overall_strength || 'no_merit'), summary: (vars.summary || '') })",
+                    "target": "",
+                    "body": "",
+                    "type": "object",
+                    "elementId": "root"
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cCa3k8x2",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "rCa9m3v7",
+                        "rule": "current-stage-entered"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "t6Wn3Kp9",
+              "type": "agent",
+              "displayName": "RecoveryOracle",
+              "elementId": "Stage_An5xt4-t6Wn3Kp9",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bV5c9Rb2",
+                "folderPath": "=bindings.bN3x6Lk8",
+                "inputs": [
+                  {
+                    "name": "verdict",
+                    "displayName": "verdict",
+                    "type": "object",
+                    "value": "=vars.verdict_blob",
+                    "var": "vWkfsI6PM",
+                    "id": "vWkfsI6PM",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "body": {
+                      "type": "object"
+                    },
+                    "_jsonSchema": {
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "case",
+                    "displayName": "case",
+                    "type": "object",
+                    "value": "=js:({ case_id: vars.case_id, invoice: { invoice_number: vars.invoice_data.invoice_number, carrier_name: vars.invoice_data.carrier_name, bol_number: vars.invoice_data.bol_number, container_number: vars.invoice_data.container_number, charge_type: (vars.charge_type || 'other'), charge_incurred_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.charge_incurred_date), invoice_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.invoice_date), hours_billed: vars.invoice_data.hours_billed, hourly_rate_usd: vars.invoice_data.hourly_rate_usd, total_amount_usd: vars.invoice_data.total_amount_usd, billed_to_party: vars.invoice_data.billed_to_party }, evidence: vars.evidence_data ?? {} })",
+                    "var": "vMdhK6siK",
+                    "id": "vMdhK6siK",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "body": {
+                      "type": "object"
+                    },
+                    "_jsonSchema": {
+                      "type": "object"
+                    }
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "recovery_probability",
+                    "displayName": "recovery_probability",
+                    "type": "number",
+                    "id": "recoveryProbability",
+                    "var": "recovery_probability",
+                    "originalVar": "recoveryProbability",
+                    "source": "=recovery_probability",
+                    "target": "=recoveryProbability",
+                    "value": "=recovery_probability",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "expected_recovery_usd",
+                    "displayName": "expected_recovery_usd",
+                    "type": "number",
+                    "id": "vERU001",
+                    "var": "expected_recovery_usd",
+                    "originalVar": "vERU001",
+                    "source": "=expected_recovery_usd",
+                    "target": "=expected_recovery_usd",
+                    "value": "=expected_recovery_usd",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "recommended_action",
+                    "displayName": "recommended_action",
+                    "type": "string",
+                    "id": "recommendedAction",
+                    "var": "recommended_action",
+                    "originalVar": "recommendedAction",
+                    "source": "=recommended_action",
+                    "target": "=recommendedAction",
+                    "value": "=recommended_action",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "confidence",
+                    "displayName": "confidence",
+                    "type": "number",
+                    "id": "vConf001",
+                    "var": "confidence",
+                    "originalVar": "vConf001",
+                    "source": "=confidence",
+                    "target": "=confidence",
+                    "value": "=confidence",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "reasoning",
+                    "displayName": "reasoning",
+                    "type": "string",
+                    "id": "vReas001",
+                    "var": "reasoning",
+                    "originalVar": "vReas001",
+                    "source": "=reasoning",
+                    "target": "=reasoning",
+                    "value": "=reasoning",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "key_factors",
+                    "displayName": "key_factors",
+                    "type": "jsonSchema",
+                    "id": "vKF001",
+                    "var": "key_factors",
+                    "originalVar": "vKF001",
+                    "source": "=key_factors",
+                    "target": "=key_factors",
+                    "value": "=key_factors",
+                    "elementId": "Stage_An5xt4-t6Wn3Kp9",
+                    "body": "",
+                    "_jsonSchema": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "custom": false
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cRo7n2k5",
+                  "displayName": "After ComplianceAuditor",
+                  "rules": [
+                    [
+                      {
+                        "id": "rRo4x8q3",
+                        "rule": "selected-tasks-completed",
+                        "selectedTasksIds": [
+                          "t2Lq8Md5"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "id": "t4Bx7Rt2",
+              "type": "agent",
+              "displayName": "DemandSmith",
+              "elementId": "Stage_An5xt4-t4Bx7Rt2",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bD7r4Km2",
+                "folderPath": "=bindings.bF9w2Ln5",
+                "inputs": [
+                  {
+                    "name": "verdict",
+                    "displayName": "verdict",
+                    "type": "object",
+                    "value": "=vars.verdict_blob",
+                    "var": "vDk3Wm8Qr",
+                    "id": "vDk3Wm8Qr",
+                    "elementId": "Stage_An5xt4-t4Bx7Rt2",
+                    "body": {
+                      "type": "object"
+                    },
+                    "_jsonSchema": {
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "score",
+                    "displayName": "score",
+                    "type": "object",
+                    "value": "=js:({ case_id: vars.case_id, recovery_probability: (vars.recovery_probability || 0), expected_recovery_usd: (vars.expected_recovery_usd || 0), recommended_action: (vars.recommended_action || 'human_review'), confidence: (vars.confidence || 0.6), reasoning: (vars.reasoning || ''), key_factors: (vars.key_factors || []) })",
+                    "var": "vSc7Np2Lx",
+                    "id": "vSc7Np2Lx",
+                    "elementId": "Stage_An5xt4-t4Bx7Rt2",
+                    "body": {
+                      "type": "object"
+                    },
+                    "_jsonSchema": {
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "case",
+                    "displayName": "case",
+                    "type": "object",
+                    "value": "=js:({ case_id: vars.case_id, invoice: { invoice_number: vars.invoice_data.invoice_number, carrier_name: vars.invoice_data.carrier_name, bol_number: vars.invoice_data.bol_number, container_number: vars.invoice_data.container_number, charge_type: (vars.charge_type || 'other'), charge_incurred_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.charge_incurred_date), invoice_date: ((d) => { if (!d || typeof d !== 'string') return d; const m = d.match(/^(\\d{1,2})\\/(\\d{1,2})\\/(\\d{4})/); if (!m) return d; return m[3] + '-' + m[1].padStart(2,'0') + '-' + m[2].padStart(2,'0'); })(vars.invoice_data.invoice_date), hours_billed: vars.invoice_data.hours_billed, hourly_rate_usd: vars.invoice_data.hourly_rate_usd, total_amount_usd: vars.invoice_data.total_amount_usd, billed_to_party: vars.invoice_data.billed_to_party }, evidence: vars.evidence_data ?? {} })",
+                    "var": "vCa9Rb4Tz",
+                    "id": "vCa9Rb4Tz",
+                    "elementId": "Stage_An5xt4-t4Bx7Rt2",
+                    "body": {
+                      "type": "object"
+                    },
+                    "_jsonSchema": {
+                      "type": "object"
+                    }
+                  },
+                  {
+                    "name": "filing_date",
+                    "displayName": "filing_date",
+                    "type": "string",
+                    "value": "=js:(new Date().toISOString().slice(0, 10))",
+                    "var": "vFd2Kp6Wn",
+                    "id": "vFd2Kp6Wn",
+                    "elementId": "Stage_An5xt4-t4Bx7Rt2"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "letter_text",
+                    "displayName": "letter_text",
+                    "type": "string",
+                    "id": "letterText",
+                    "var": "letter_data",
+                    "originalVar": "letterText",
+                    "source": "=letter_text",
+                    "target": "=letterText",
+                    "value": "=letter_text",
+                    "elementId": "Stage_An5xt4-t4Bx7Rt2",
+                    "custom": false,
+                    "body": ""
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cDs5m9w2",
+                  "displayName": "After RecoveryOracle",
+                  "rules": [
+                    [
+                      {
+                        "id": "rDs8k4n6",
+                        "rule": "selected-tasks-completed",
+                        "selectedTasksIds": [
+                          "t6Wn3Kp9"
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_Ae5p2x",
+            "displayName": "After Evidence",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ae9k6w",
+                  "rule": "selected-stage-completed",
+                  "selectedStageId": "Stage_Ev3mq8"
+                }
+              ]
+            ]
+          },
+          {
+            "id": "Condition_Ar7m4p",
+            "displayName": "Rework from Filing (carrier denied)",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ar2n9k",
+                  "rule": "selected-stage-exited",
+                  "selectedStageId": "Stage_Fi2rb7"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_Axf1k2",
+            "displayName": "Auto-file \u2192 Filing",
+            "type": "exit-only",
+            "exitToStageId": "Stage_Fi2rb7",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Axf3n7",
+                  "rule": "required-tasks-completed",
+                  "conditionExpression": "=js:vars.recommended_action === 'auto_file'"
+                }
+              ]
+            ]
+          },
+          {
+            "id": "Condition_Axa4p9",
+            "displayName": "Human review \u2192 Approval",
+            "type": "exit-only",
+            "exitToStageId": "Stage_Ap9wz6",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Axa6w2",
+                  "rule": "required-tasks-completed",
+                  "conditionExpression": "=js:vars.recommended_action === 'human_review'"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 208
+      },
+      "width": 304,
+      "position": {
+        "x": 1424,
+        "y": 224
+      },
+      "id": "Stage_Ap9wz6",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Approval",
+        "description": "Human-in-the-loop review at the key decision point. Entered only when recommended_action == human_review.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "t8Gz5Hn4",
+              "type": "action",
+              "displayName": "ApprovalGate",
+              "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "taskTitle": "Approve or reject the dispute",
+                "priority": "High",
+                "recipient": {
+                  "Type": 2,
+                  "Value": "crofteb@gmail.com"
+                },
+                "labels": "[\"approval\", \"dispute\"]",
+                "name": "=bindings.bApGnmApp01",
+                "folderPath": "=bindings.bApFpApp001",
+                "inputs": [
+                  {
+                    "name": "overall_strength",
+                    "type": "string",
+                    "id": "vApIn001",
+                    "var": "vApIn001",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "value": "=vars.overall_strength"
+                  },
+                  {
+                    "name": "violation_count",
+                    "type": "number",
+                    "id": "vApIn002",
+                    "var": "vApIn002",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "value": "=js:((vars.violations || []).length)"
+                  },
+                  {
+                    "name": "recovery_probability",
+                    "type": "number",
+                    "id": "vApIn003",
+                    "var": "vApIn003",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "value": "=vars.recovery_probability"
+                  },
+                  {
+                    "name": "total_amount_usd",
+                    "type": "number",
+                    "id": "vApIn004",
+                    "var": "vApIn004",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "value": "=vars.total_amount_usd"
+                  },
+                  {
+                    "name": "letter_data",
+                    "type": "json",
+                    "id": "vApIn005",
+                    "var": "vApIn005",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "value": "=vars.letter_data"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "decision",
+                    "displayName": "decision",
+                    "type": "string",
+                    "source": "=decision",
+                    "var": "approval_decision",
+                    "id": "vApOut001",
+                    "target": "=decision",
+                    "value": "=decision",
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "Action",
+                    "displayName": "Action",
+                    "type": "string",
+                    "source": "=Action",
+                    "var": "action",
+                    "id": "vApOut002",
+                    "target": "=Action",
+                    "value": "=Action",
+                    "options": [
+                      {
+                        "value": "Approve",
+                        "label": "Approve"
+                      },
+                      {
+                        "value": "Reject",
+                        "label": "Reject"
+                      }
+                    ],
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "hitlTask",
+                    "displayName": "hitlTask",
+                    "type": "jsonSchema",
+                    "source": "=hitlTask",
+                    "var": "hitlTask",
+                    "id": "vApOut003",
+                    "target": "=hitlTask",
+                    "value": "=hitlTask",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "displayName": "All Task Properties"
+                    },
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "Error",
+                    "displayName": "Error",
+                    "type": "jsonSchema",
+                    "source": "=Error",
+                    "var": "error",
+                    "id": "vApOut004",
+                    "target": "=Error",
+                    "value": "error",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "elementId": "Stage_Ap9wz6-t8Gz5Hn4"
+                  }
+                ],
+                "context": [
+                  {
+                    "name": "Action",
+                    "type": "action",
+                    "taskTypeId": "7d6a66bd-63ef-48c4-b54c-ca3869fb11e2"
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cAg6m3q8",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "rAg2n9k4",
+                        "rule": "current-stage-entered"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_Pe6m3q",
+            "displayName": "Human review needed",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Pe2n8k",
+                  "rule": "selected-stage-completed",
+                  "selectedStageId": "Stage_An5xt4",
+                  "conditionExpression": "=js:vars.recommended_action === 'human_review'"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_Apf2m9",
+            "displayName": "Approved \u2192 Filing",
+            "type": "exit-only",
+            "exitToStageId": "Stage_Fi2rb7",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Apf7k4",
+                  "rule": "required-tasks-completed",
+                  "conditionExpression": "=js:vars.approval_decision === 'approved'"
+                }
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 256
+      },
+      "width": 304,
+      "position": {
+        "x": 1424,
+        "y": 448
+      },
+      "id": "Stage_Fi2rb7",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Filing",
+        "description": "Submit and track the dispute; exits on carrier_response.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "t1Mc9Vb6",
+              "type": "rpa",
+              "displayName": "FilingRunner",
+              "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+              "isRequired": true,
+              "shouldRunOnlyOnce": true,
+              "data": {
+                "name": "=bindings.bETju1b6P",
+                "folderPath": "=bindings.b0IP38RBi",
+                "inputs": [
+                  {
+                    "name": "in_case_id",
+                    "type": "string",
+                    "id": "vRgoyobe2",
+                    "var": "in_case_id",
+                    "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+                    "value": "=vars.case_id"
+                  },
+                  {
+                    "name": "in_container_number",
+                    "type": "string",
+                    "id": "vBc3bJyjl",
+                    "var": "in_container_number",
+                    "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+                    "value": "=vars.container_number"
+                  },
+                  {
+                    "name": "in_letter_data",
+                    "type": "string",
+                    "id": "vmlI2sDJE",
+                    "var": "in_letter_data",
+                    "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+                    "value": "=vars.letter_data"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "out_filing_reference",
+                    "displayName": "out_filing_reference",
+                    "id": "filingReference",
+                    "var": "filingReference",
+                    "originalVar": "filingReference",
+                    "value": "=out_filing_reference",
+                    "source": "=out_filing_reference",
+                    "target": "=filingReference",
+                    "type": "string",
+                    "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "out_filing_timestamp",
+                    "displayName": "out_filing_timestamp",
+                    "id": "filingTimestamp",
+                    "var": "filingTimestamp",
+                    "originalVar": "filingTimestamp",
+                    "value": "=out_filing_timestamp",
+                    "source": "=out_filing_timestamp",
+                    "target": "=filingTimestamp",
+                    "type": "string",
+                    "elementId": "Stage_Fi2rb7-t1Mc9Vb6",
+                    "custom": false,
+                    "body": ""
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "cFr8x4p2",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "rFr3k7w9",
+                        "rule": "current-stage-entered"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_Fe1a7x",
+            "displayName": "Auto-file from Analysis",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Fe5a3w",
+                  "rule": "selected-stage-completed",
+                  "selectedStageId": "Stage_An5xt4",
+                  "conditionExpression": "=js:vars.recommended_action === 'auto_file'"
+                }
+              ]
+            ]
+          },
+          {
+            "id": "Condition_Fe2b9q",
+            "displayName": "Approved by reviewer",
+            "isInterrupting": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Fe6b4n",
+                  "rule": "selected-stage-completed",
+                  "selectedStageId": "Stage_Ap9wz6",
+                  "conditionExpression": "=js:vars.approval_decision === 'approved'"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_KIAgDY",
+            "displayName": "Filing complete",
+            "type": "exit-only",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_D0QlxO",
+                  "rule": "required-tasks-completed"
+                }
+              ]
+            ]
+          },
+          {
+            "id": "Condition_Fd3n8k",
+            "displayName": "Carrier denied \u2192 Rework to Analysis",
+            "type": "exit-only",
+            "exitToStageId": "Stage_An5xt4",
+            "marksStageComplete": false,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Fd5m2x",
+                  "rule": "required-tasks-completed",
+                  "conditionExpression": "=js:vars.carrier_response === 'denied'"
+                }
+              ]
+            ]
+          }
+        ],
+        "slaRules": [
+          {
+            "expression": "=js:true",
+            "count": 7,
+            "unit": "d",
+            "escalationRule": []
+          }
+        ]
+      }
+    },
+    {
+      "style": {
+        "width": 304
+      },
+      "measured": {
+        "width": 304,
+        "height": 208
+      },
+      "width": 304,
+      "position": {
+        "x": 1792,
+        "y": 400
+      },
+      "id": "Stage_Es6vk9",
+      "type": "case-management:Stage",
+      "data": {
+        "label": "Escalated to FMC",
+        "description": "Exception path \u2014 carrier denied or went silent, or Filing SLA breached. Returns to Filing after review.",
+        "isRequired": false,
+        "parentElement": {
+          "id": "root",
+          "type": "case-management:root"
+        },
+        "isInvalidDropTarget": false,
+        "isPendingParent": false,
+        "tasks": [
+          [
+            {
+              "id": "tCqEU97gI",
+              "type": "action",
+              "displayName": "EscalationReview",
+              "elementId": "Stage_Es6vk9-tCqEU97gI",
+              "isRequired": true,
+              "shouldRunOnlyOnce": false,
+              "data": {
+                "taskTitle": "Escalate dispute to FMC",
+                "priority": "High",
+                "recipient": {
+                  "Type": 2,
+                  "Value": "crofteb@gmail.com"
+                },
+                "labels": "[\"escalation\", \"fmc\", \"dispute\"]",
+                "name": "=bindings.bEsGnmApp01",
+                "folderPath": "=bindings.bEsFpApp001",
+                "inputs": [
+                  {
+                    "name": "case_id",
+                    "type": "string",
+                    "id": "vEsIn001",
+                    "var": "vEsIn001",
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "value": "=vars.case_id"
+                  },
+                  {
+                    "name": "container_number",
+                    "type": "string",
+                    "id": "vEsIn002",
+                    "var": "vEsIn002",
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "value": "=vars.container_number"
+                  },
+                  {
+                    "name": "carrier_response",
+                    "type": "string",
+                    "id": "vEsIn003",
+                    "var": "vEsIn003",
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "value": "=vars.carrier_response"
+                  },
+                  {
+                    "name": "letter_data",
+                    "type": "json",
+                    "id": "vEsIn004",
+                    "var": "vEsIn004",
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "value": "=vars.letter_data"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "name": "decision",
+                    "displayName": "decision",
+                    "type": "string",
+                    "source": "=decision",
+                    "var": "escalation_decision",
+                    "id": "vEsOut001",
+                    "target": "=decision",
+                    "value": "=decision",
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "Action",
+                    "displayName": "Action",
+                    "type": "string",
+                    "source": "=Action",
+                    "var": "escalation_action",
+                    "id": "vEsOut002",
+                    "target": "=Action",
+                    "value": "=Action",
+                    "options": [
+                      {
+                        "value": "Escalate",
+                        "label": "Escalate to FMC"
+                      },
+                      {
+                        "value": "Return",
+                        "label": "Return to Filing"
+                      }
+                    ],
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "hitlTask",
+                    "displayName": "hitlTask",
+                    "type": "jsonSchema",
+                    "source": "=hitlTask",
+                    "var": "escalationHitlTask",
+                    "id": "vEsOut003",
+                    "target": "=hitlTask",
+                    "value": "=hitlTask",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "displayName": "All Task Properties"
+                    },
+                    "elementId": "Stage_Es6vk9-tCqEU97gI",
+                    "custom": false,
+                    "body": ""
+                  },
+                  {
+                    "name": "Error",
+                    "displayName": "escalation_error",
+                    "type": "jsonSchema",
+                    "source": "=Error",
+                    "var": "escalation_error",
+                    "id": "vEsOut004",
+                    "target": "=Error",
+                    "value": "error",
+                    "_jsonSchema": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "detail": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "number"
+                        },
+                        "element": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "elementId": "Stage_Es6vk9-tCqEU97gI"
+                  }
+                ],
+                "context": [
+                  {
+                    "name": "Action",
+                    "type": "action",
+                    "taskTypeId": "7d6a66bd-63ef-48c4-b54c-ca3869fb11e2"
+                  }
+                ]
+              },
+              "entryConditions": [
+                {
+                  "id": "Condition_P3i9gJ",
+                  "displayName": "Stage entered",
+                  "rules": [
+                    [
+                      {
+                        "id": "Rule_S4JPRE",
+                        "rule": "current-stage-entered"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        ],
+        "entryConditions": [
+          {
+            "id": "Condition_57Pa3P",
+            "displayName": "SLA breach \u2014 Filing exited",
+            "isInterrupting": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Wu4f6E",
+                  "rule": "selected-stage-exited",
+                  "selectedStageId": "Stage_Fi2rb7"
+                }
+              ]
+            ]
+          }
+        ],
+        "exitConditions": [
+          {
+            "id": "Condition_Hzo3Hc",
+            "displayName": "Reviewed \u2014 return to Filing",
+            "type": "return-to-origin",
+            "marksStageComplete": true,
+            "rules": [
+              [
+                {
+                  "id": "Rule_Ful3s1",
+                  "rule": "required-tasks-completed"
+                }
+              ]
+            ]
+          }
+        ],
+        "stageType": "secondary"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "style": {
+        "strokeWidth": 3
+      },
+      "zIndex": 1001,
+      "id": "edge_q7Hv2r",
+      "source": "trigger_1",
+      "target": "Stage_In7kp2",
+      "sourceHandle": "trigger_1____source____right",
+      "targetHandle": "Stage_In7kp2____target____left",
+      "data": {
+        "label": "Start",
+        "isIntersecting": false
+      },
+      "type": "case-management:TriggerEdge"
+    },
+    {
+      "id": "edge_m4Kp8t",
+      "source": "Stage_In7kp2",
+      "target": "Stage_Ev3mq8",
+      "sourceHandle": "Stage_In7kp2____source____right",
+      "targetHandle": "Stage_Ev3mq8____target____left",
+      "data": {
+        "label": "",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    },
+    {
+      "id": "edge_z9Bn3w",
+      "source": "Stage_Ev3mq8",
+      "target": "Stage_An5xt4",
+      "sourceHandle": "Stage_Ev3mq8____source____right",
+      "targetHandle": "Stage_An5xt4____target____left",
+      "data": {
+        "label": "",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    },
+    {
+      "id": "edge_x2Lc6h",
+      "source": "Stage_An5xt4",
+      "target": "Stage_Fi2rb7",
+      "sourceHandle": "Stage_An5xt4____source____right",
+      "targetHandle": "Stage_Fi2rb7____target____left",
+      "data": {
+        "label": "Auto-file",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    },
+    {
+      "id": "edge_v5Rt9k",
+      "source": "Stage_An5xt4",
+      "target": "Stage_Ap9wz6",
+      "sourceHandle": "Stage_An5xt4____source____bottom",
+      "targetHandle": "Stage_Ap9wz6____target____left",
+      "data": {
+        "label": "Human review",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    },
+    {
+      "id": "edge_w3Jd7p",
+      "source": "Stage_Ap9wz6",
+      "target": "Stage_Fi2rb7",
+      "sourceHandle": "Stage_Ap9wz6____source____right",
+      "targetHandle": "Stage_Fi2rb7____target____bottom",
+      "data": {
+        "label": "Approved",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    },
+    {
+      "id": "edge_e5Fm1c",
+      "source": "Stage_Fi2rb7",
+      "target": "Stage_Es6vk9",
+      "sourceHandle": "Stage_Fi2rb7____source____bottom",
+      "targetHandle": "Stage_Es6vk9____target____left",
+      "data": {
+        "label": "Filing exited (SLA or denied)",
+        "isReEntry": false,
+        "isIntersecting": false
+      },
+      "type": "case-management:Edge"
+    }
+  ]
+}
