@@ -156,78 +156,6 @@
       "propertyAttribute": "folderPath"
     },
     {
-      "id": "bpF0Muf5n",
-      "name": "folderPath",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1.InvoiceLens",
-      "default": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1",
-      "propertyAttribute": "folderPath"
-    },
-    {
-      "id": "bo29a2Xeq",
-      "name": "name",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "pranav.kende7@gmail.com's workspace/Debug_DisputeOps 1.InvoiceLens",
-      "default": "InvoiceLens",
-      "propertyAttribute": "name"
-    },
-    {
-      "id": "bMXRcS0yp",
-      "name": "uipath-microsoft-onedrive connection",
-      "type": "string",
-      "resource": "Connection",
-      "resourceKey": "09a3aa96-60bc-437b-886e-030e3403d7e4",
-      "default": "09a3aa96-60bc-437b-886e-030e3403d7e4",
-      "propertyAttribute": "ConnectionId"
-    },
-    {
-      "id": "bw7ZZU9Hc",
-      "name": "FolderKey",
-      "type": "string",
-      "resource": "Connection",
-      "resourceKey": "09a3aa96-60bc-437b-886e-030e3403d7e4",
-      "default": "0542afc7-4c88-4492-b61d-ee6b2f5c5e94",
-      "propertyAttribute": "folderKey"
-    },
-    {
-      "id": "bgme1Nm4d",
-      "name": "folderPath",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "InvoiceLens_3",
-      "default": "",
-      "propertyAttribute": "folderPath"
-    },
-    {
-      "id": "bKqmniGWE",
-      "name": "name",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "InvoiceLens_3",
-      "default": "InvoiceLens_3",
-      "propertyAttribute": "name"
-    },
-    {
-      "id": "bas2k9ws8",
-      "name": "folderPath",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "InvoiceLens",
-      "default": "",
-      "propertyAttribute": "folderPath"
-    },
-    {
-      "id": "bEifGAzTy",
-      "name": "name",
-      "type": "string",
-      "resource": "process",
-      "resourceKey": "InvoiceLens",
-      "default": "InvoiceLens",
-      "propertyAttribute": "name"
-    },
-    {
       "id": "boSjTpejO",
       "name": "folderPath",
       "type": "string",
@@ -2599,7 +2527,7 @@
                 "priority": "High",
                 "recipient": {
                   "Type": 2,
-                  "Value": "crofteb@gmail.com"
+                  "Value": "reviewer@example.com"
                 },
                 "labels": "[\"approval\", \"dispute\"]",
                 "name": "=bindings.bApGnmApp01",
@@ -3021,7 +2949,7 @@
                 "priority": "High",
                 "recipient": {
                   "Type": 2,
-                  "Value": "crofteb@gmail.com"
+                  "Value": "reviewer@example.com"
                 },
                 "labels": "[\"escalation\", \"fmc\", \"dispute\"]",
                 "name": "=bindings.bEsGnmApp01",
